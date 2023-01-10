@@ -1,0 +1,13 @@
+D:\VS2022\Save_file\TCPSever\obj\Debug\TCPClient.csproj.AssemblyReference.cache
+D:\VS2022\Save_file\TCPSever\obj\Debug\TCPClient.csproj.SuggestedBindingRedirects.cache
+D:\VS2022\Save_file\TCPSever\obj\Debug\TCPClient.Form1.resources
+D:\VS2022\Save_file\TCPSever\obj\Debug\TCPSever.Properties.Resources.resources
+D:\VS2022\Save_file\TCPSever\obj\Debug\TCPClient.csproj.GenerateResource.cache
+D:\VS2022\Save_file\TCPSever\obj\Debug\TCPClient.csproj.CoreCompileInputs.cache
+D:\VS2022\Save_file\TCPSever\bin\Debug\TCPSever.exe.config
+D:\VS2022\Save_file\TCPSever\bin\Debug\TCPSever.exe
+D:\VS2022\Save_file\TCPSever\bin\Debug\TCPSever.pdb
+D:\VS2022\Save_file\TCPSever\bin\Debug\SuperSimpleTcp.dll
+D:\VS2022\Save_file\TCPSever\obj\Debug\TCPClient.csproj.CopyComplete
+D:\VS2022\Save_file\TCPSever\obj\Debug\TCPSever.exe
+D:\VS2022\Save_file\TCPSever\obj\Debug\TCPSever.pdb

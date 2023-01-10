@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{26EA9783-2CD5-4D90-81D6-BB5CAFC58823}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TCPSever</RootNamespace>
+    <AssemblyName>TCPSever</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SuperSimpleTcp, Version=3.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Sever\packages\SuperSimpleTcp.3.0.5\lib\net461\SuperSimpleTcp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\3561837_emoji_emoticon_emoticons_expression_suspicious_icon.png" />
+    <Content Include="Properties\3561838_emoji_emoticon_emoticons_expression_face_icon.png" />
+    <Content Include="Properties\3561839_emoji_emoticon_silly_icon.png" />
+    <Content Include="Properties\3561840_emoji_emoticon_expression_annoyed_icon.png" />
+    <Content Include="Properties\3561841_emoji_expression_glared_shocked_surprised_icon.png" />
+    <Content Include="Properties\3561842_emoji_emoticon_expression_shame_smiley_icon.png" />
+    <Content Include="Properties\3561843_emoticon_expression_laugh_ridicule_teasing_icon.png" />
+    <Content Include="Properties\3561844_emoji_emoticon_expression_wonder_icon.png" />
+    <Content Include="Properties\3561845_emoticon_expression_prejudice_icon.png" />
+    <Content Include="Properties\3561846_blind_emoticon_emotion_face_smiley_icon.png" />
+    <Content Include="Properties\3561847_emoji_emoticon_emoticons_expression_mad_icon.png" />
+    <Content Include="Properties\3561848_avatar_emoji_emoticon_face_suspicious_icon.png" />
+    <Content Include="Properties\3561849_emoticon_emoticons_emotion_feeling_icon.png" />
+    <Content Include="Properties\3561850_caught up_emoji_emoticon_forced_pity_icon.png" />
+    <Content Include="Properties\3561851_emoticon_expresion_shocked_icon.png" />
+    <Content Include="Properties\3561852_expression_emoticon_think_suspicious_emoji_icon.png" />
+    <Content Include="Properties\3561853_emoji_emoticon_happy_laugh_icon.png" />
+    <Content Include="Properties\3561854_emoji_emoticon_expression_feeling_grumble_icon.png" />
+    <Content Include="Properties\3561855_cry_emoticon_emotion_face_sad_icon.png" />
+    <Content Include="Properties\3561856_blank_dead_emoticon_icon.png" />
+    <Content Include="Properties\3561857_bedroom_emoji_emoticon_rest_sleep_icon.png" />
+    <Content Include="Properties\3561858_emoji_emoticon_emotion_face_happy_icon.png" />
+    <Content Include="Properties\3561859_emoji_emoticon_glued_mute_silent_icon.png" />
+    <Content Include="Properties\3561860_emoji_emoticon_emotion_shocked_wonder_icon.png" />
+    <Content Include="Properties\3561861_emoji_emoticon_expression_laughter_icon.png" />
+    <None Include="Resources\ezgif.com-gif-maker %2818%29.gif" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
