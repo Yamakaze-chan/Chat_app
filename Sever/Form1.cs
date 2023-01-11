@@ -35,7 +35,12 @@ namespace TCPSever
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            
+            txtIP.Text.Trim();
+            sever = new SimpleTcpServer(txtIP.Text);
+            sever.Events.ClientConnected += Events_ClientConnected; ;
+            sever.Events.ClientDisconnected += Events_ClientDisconnected;
+            sever.Events.DataReceived += Events_DataReceived;
+            sever.Start();
             txtInfo.Text += $"Starting...{Environment.NewLine}";
             btnStart.Enabled = false;
             btnSend.Enabled = true;
