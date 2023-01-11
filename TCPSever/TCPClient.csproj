@@ -134,6 +134,8 @@
     <Content Include="Properties\3561859_emoji_emoticon_glued_mute_silent_icon.png" />
     <Content Include="Properties\3561860_emoji_emoticon_emotion_shocked_wonder_icon.png" />
     <Content Include="Properties\3561861_emoji_emoticon_expression_laughter_icon.png" />
+    <None Include="Resources\image.png" />
+    <None Include="Resources\history.png" />
     <None Include="Resources\gif_hover.png" />
     <None Include="Resources\gif.png" />
     <None Include="Resources\emoji_hover.png" />

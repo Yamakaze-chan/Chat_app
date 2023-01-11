@@ -127,6 +127,9 @@
   <data name="exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="emoji_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\emoji_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="male2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\male2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -135,9 +138,6 @@
   </data>
   <data name="emoji" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\emoji.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="gif" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gif.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="baby1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\baby1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,6 +160,9 @@
   <data name="font" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\font.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="history" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\history.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="exit_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -169,8 +172,8 @@
   <data name="girl1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\girl1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="emoji_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\emoji_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="gif" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gif.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="send" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\send.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,13 +187,16 @@
   <data name="ezgif.com-gif-maker (18)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ezgif.com-gif-maker (18).gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="gif_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gif_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="choose" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\choose1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="boy2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\boy2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="gif_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gif_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
