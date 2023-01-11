@@ -29,77 +29,35 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtIP = new System.Windows.Forms.TextBox();
-            this.txtInfo = new System.Windows.Forms.TextBox();
-            this.txtMessage = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnSend = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.listClientIP = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.txtIP = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Exit_btn = new System.Windows.Forms.Button();
+            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.txtInfo = new System.Windows.Forms.TextBox();
+            this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(26, 28);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(29, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.Size = new System.Drawing.Size(64, 26);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Sever: ";
+            this.label1.Text = "Server";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtIP
-            // 
-            this.txtIP.Location = new System.Drawing.Point(104, 29);
-            this.txtIP.Name = "txtIP";
-            this.txtIP.Size = new System.Drawing.Size(430, 22);
-            this.txtIP.TabIndex = 1;
-            this.txtIP.Text = "127.0.0.1:9000";
-            // 
-            // txtInfo
-            // 
-            this.txtInfo.Location = new System.Drawing.Point(104, 66);
-            this.txtInfo.Multiline = true;
-            this.txtInfo.Name = "txtInfo";
-            this.txtInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtInfo.Size = new System.Drawing.Size(430, 309);
-            this.txtInfo.TabIndex = 2;
-            this.txtInfo.Text = " ";
-            // 
-            // txtMessage
-            // 
-            this.txtMessage.Location = new System.Drawing.Point(104, 407);
-            this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(430, 22);
-            this.txtMessage.TabIndex = 3;
-            this.txtMessage.Text = " ";
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(-2, 406);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 23);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Message";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btnSend
-            // 
-            this.btnSend.Location = new System.Drawing.Point(564, 406);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(75, 23);
-            this.btnSend.TabIndex = 5;
-            this.btnSend.Text = "Send";
-            this.btnSend.UseVisualStyleBackColor = true;
-            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(645, 406);
+            this.btnStart.ForeColor = System.Drawing.Color.Black;
+            this.btnStart.Location = new System.Drawing.Point(415, 25);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.Size = new System.Drawing.Size(142, 26);
             this.btnStart.TabIndex = 6;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -107,67 +65,146 @@
             // 
             // listClientIP
             // 
+            this.listClientIP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(46)))));
+            this.listClientIP.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listClientIP.Enabled = false;
+            this.listClientIP.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listClientIP.ForeColor = System.Drawing.Color.White;
             this.listClientIP.FormattingEnabled = true;
-            this.listClientIP.ItemHeight = 16;
-            this.listClientIP.Location = new System.Drawing.Point(744, 66);
+            this.listClientIP.ItemHeight = 25;
+            this.listClientIP.Location = new System.Drawing.Point(415, 127);
+            this.listClientIP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listClientIP.Name = "listClientIP";
-            this.listClientIP.Size = new System.Drawing.Size(396, 532);
+            this.listClientIP.Size = new System.Drawing.Size(348, 375);
             this.listClientIP.TabIndex = 7;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(741, 40);
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(411, 79);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 23);
+            this.label3.Size = new System.Drawing.Size(65, 23);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Client IP:";
+            this.label3.Text = "Client IP";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pictureBox1
+            // txtIP
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(541, 66);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(197, 309);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
+            this.txtIP.BackColor = System.Drawing.Color.Transparent;
+            this.txtIP.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtIP.DefaultText = "127.0.0.1:9000";
+            this.txtIP.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtIP.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtIP.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtIP.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtIP.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(46)))));
+            this.txtIP.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIP.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIP.ForeColor = System.Drawing.Color.White;
+            this.txtIP.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIP.Location = new System.Drawing.Point(241, 24);
+            this.txtIP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtIP.Name = "txtIP";
+            this.txtIP.PasswordChar = '\0';
+            this.txtIP.PlaceholderText = "";
+            this.txtIP.SelectedText = "";
+            this.txtIP.Size = new System.Drawing.Size(140, 26);
+            this.txtIP.TabIndex = 9;
+            this.txtIP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(29, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 23);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Server info";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Exit_btn
+            // 
+            this.Exit_btn.ForeColor = System.Drawing.Color.Black;
+            this.Exit_btn.Location = new System.Drawing.Point(681, 25);
+            this.Exit_btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Exit_btn.Name = "Exit_btn";
+            this.Exit_btn.Size = new System.Drawing.Size(82, 26);
+            this.Exit_btn.TabIndex = 6;
+            this.Exit_btn.Text = "Exit";
+            this.Exit_btn.UseVisualStyleBackColor = true;
+            this.Exit_btn.Click += new System.EventHandler(this.Exit_btn_Click);
+            // 
+            // guna2CustomGradientPanel1
+            // 
+            this.guna2CustomGradientPanel1.Controls.Add(this.label1);
+            this.guna2CustomGradientPanel1.Controls.Add(this.txtInfo);
+            this.guna2CustomGradientPanel1.Controls.Add(this.txtIP);
+            this.guna2CustomGradientPanel1.Controls.Add(this.listClientIP);
+            this.guna2CustomGradientPanel1.Controls.Add(this.Exit_btn);
+            this.guna2CustomGradientPanel1.Controls.Add(this.label3);
+            this.guna2CustomGradientPanel1.Controls.Add(this.btnStart);
+            this.guna2CustomGradientPanel1.Controls.Add(this.label2);
+            this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2CustomGradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(0)))), ((int)(((byte)(153)))));
+            this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(0)))));
+            this.guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(0)))), ((int)(((byte)(89)))));
+            this.guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(0)))), ((int)(((byte)(84)))));
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(815, 540);
+            this.guna2CustomGradientPanel1.TabIndex = 10;
+            // 
+            // txtInfo
+            // 
+            this.txtInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(46)))));
+            this.txtInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtInfo.Enabled = false;
+            this.txtInfo.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInfo.ForeColor = System.Drawing.Color.White;
+            this.txtInfo.Location = new System.Drawing.Point(33, 127);
+            this.txtInfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtInfo.Multiline = true;
+            this.txtInfo.Name = "txtInfo";
+            this.txtInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtInfo.Size = new System.Drawing.Size(348, 357);
+            this.txtInfo.TabIndex = 2;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1176, 700);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.listClientIP);
-            this.Controls.Add(this.btnStart);
-            this.Controls.Add(this.btnSend);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtMessage);
-            this.Controls.Add(this.txtInfo);
-            this.Controls.Add(this.txtIP);
-            this.Controls.Add(this.label1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(46)))));
+            this.ClientSize = new System.Drawing.Size(815, 540);
+            this.Controls.Add(this.guna2CustomGradientPanel1);
+            this.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9F);
+            this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
-            this.Text = " TCP/IP client";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Server";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.guna2CustomGradientPanel1.ResumeLayout(false);
+            this.guna2CustomGradientPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtIP;
-        private System.Windows.Forms.TextBox txtInfo;
-        private System.Windows.Forms.TextBox txtMessage;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.ListBox listClientIP;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txtIP;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Exit_btn;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
+        private System.Windows.Forms.TextBox txtInfo;
     }
 }
 

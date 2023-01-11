@@ -329,7 +329,6 @@ namespace TCPClient
             this.Invoke((MethodInvoker)delegate
             {
                 System.Windows.Forms.Label lb = new System.Windows.Forms.Label();
-                lb.Text = $"Sever {e.IpPort} connected.";
                 lb.MaximumSize = new Size(550, 0);
                 lb.AutoSize = true;
                 lb.BorderStyle = BorderStyle.FixedSingle;
@@ -339,7 +338,7 @@ namespace TCPClient
                 this.flowLayoutPanel1.VerticalScroll.Visible = false;
                 this.flowLayoutPanel1.HorizontalScroll.Visible = false;
                 this.flowLayoutPanel1.AutoScroll = true;
-                this.flowLayoutPanel1.Controls.Add(lb);
+                //this.flowLayoutPanel1.Controls.Add(lb);
                 this.flowLayoutPanel1.AutoScrollPosition = new Point(0, flowLayoutPanel1.VerticalScroll.Maximum);
             });
         }
