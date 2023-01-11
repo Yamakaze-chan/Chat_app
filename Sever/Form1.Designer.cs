@@ -129,10 +129,10 @@
             // Exit_btn
             // 
             this.Exit_btn.ForeColor = System.Drawing.Color.Black;
-            this.Exit_btn.Location = new System.Drawing.Point(681, 25);
+            this.Exit_btn.Location = new System.Drawing.Point(675, 25);
             this.Exit_btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Exit_btn.Name = "Exit_btn";
-            this.Exit_btn.Size = new System.Drawing.Size(82, 26);
+            this.Exit_btn.Size = new System.Drawing.Size(88, 26);
             this.Exit_btn.TabIndex = 6;
             this.Exit_btn.Text = "Exit";
             this.Exit_btn.UseVisualStyleBackColor = true;
