@@ -191,9 +191,9 @@
             // 
             this.history_panel.Controls.Add(this.History_lstbox);
             this.history_panel.Controls.Add(this.search_history);
-            this.history_panel.Location = new System.Drawing.Point(9, 261);
+            this.history_panel.Location = new System.Drawing.Point(9, 300);
             this.history_panel.Name = "history_panel";
-            this.history_panel.Size = new System.Drawing.Size(277, 501);
+            this.history_panel.Size = new System.Drawing.Size(277, 461);
             this.history_panel.TabIndex = 30;
             this.history_panel.Visible = false;
             // 
@@ -201,13 +201,14 @@
             // 
             this.History_lstbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(0)))), ((int)(((byte)(43)))));
             this.History_lstbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.History_lstbox.Enabled = false;
             this.History_lstbox.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.History_lstbox.ForeColor = System.Drawing.Color.White;
             this.History_lstbox.FormattingEnabled = true;
             this.History_lstbox.ItemHeight = 25;
             this.History_lstbox.Location = new System.Drawing.Point(0, 25);
             this.History_lstbox.Name = "History_lstbox";
-            this.History_lstbox.Size = new System.Drawing.Size(277, 476);
+            this.History_lstbox.Size = new System.Drawing.Size(277, 436);
             this.History_lstbox.TabIndex = 1;
             // 
             // search_history
@@ -223,9 +224,9 @@
             // 
             // memories_flowlayoutpanel
             // 
-            this.memories_flowlayoutpanel.Location = new System.Drawing.Point(9, 261);
+            this.memories_flowlayoutpanel.Location = new System.Drawing.Point(9, 300);
             this.memories_flowlayoutpanel.Name = "memories_flowlayoutpanel";
-            this.memories_flowlayoutpanel.Size = new System.Drawing.Size(277, 501);
+            this.memories_flowlayoutpanel.Size = new System.Drawing.Size(277, 461);
             this.memories_flowlayoutpanel.TabIndex = 9;
             // 
             // guna2CircleProgressBar2
@@ -286,15 +287,15 @@
             // 
             // label7
             // 
+            this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(240)))), ((int)(((byte)(248)))));
-            this.label7.Location = new System.Drawing.Point(79, 233);
+            this.label7.Location = new System.Drawing.Point(107, 233);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(145, 25);
+            this.label7.Size = new System.Drawing.Size(85, 25);
             this.label7.TabIndex = 2;
             this.label7.Text = "No activity";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2Panel3
             // 
@@ -361,6 +362,8 @@
             this.IP_lstbox.Name = "IP_lstbox";
             this.IP_lstbox.Size = new System.Drawing.Size(227, 24);
             this.IP_lstbox.TabIndex = 33;
+            this.IP_lstbox.Click += new System.EventHandler(this.IP_lstbox_Click);
+            this.IP_lstbox.DoubleClick += new System.EventHandler(this.IP_lstbox_DoubleClick);
             // 
             // guna2GradientPanel3
             // 
@@ -434,14 +437,14 @@
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(240)))), ((int)(((byte)(248)))));
-            this.label5.Location = new System.Drawing.Point(46, 64);
+            this.label5.Location = new System.Drawing.Point(0, 64);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(134, 20);
+            this.label5.Size = new System.Drawing.Size(227, 25);
             this.label5.TabIndex = 2;
             this.label5.Text = "Service is not available";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Port1
             // 
@@ -703,6 +706,7 @@
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Avatar_btn)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
+            this.guna2Panel2.PerformLayout();
             this.history_panel.ResumeLayout(false);
             this.history_panel.PerformLayout();
             this.guna2CircleProgressBar2.ResumeLayout(false);

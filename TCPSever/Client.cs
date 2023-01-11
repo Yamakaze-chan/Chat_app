@@ -79,8 +79,6 @@ namespace TCPClient
                 try
                 {
                     txtIP = IP1.Text + ":" + Port1.Text;
-                    label5.Text = "Server is connected";
-                    label7.Text = "Active";
                     //try connect to our sever
                     client = new SimpleTcpClient(txtIP);
                     client.Events.Connected += Events_Connected;
@@ -90,6 +88,8 @@ namespace TCPClient
                     btnConnect1.Text = "Disconnect";
                     Send_btn.Enabled = true;
                     txtMessage.Text = "";
+                    label5.Text = "Server is connected";
+                    label7.Text = "Active";
                 }
                 catch (Exception ex)
                 {
@@ -296,6 +296,8 @@ namespace TCPClient
                         string[] receive_history = receive.Split('\n');
                         foreach (string str in receive_history)
                         {
+                            if(str == "\n" || str == string.Empty)
+                            { continue; };
                             History.Add(str);
                         }
                         Console.WriteLine(receive);
@@ -745,6 +747,8 @@ namespace TCPClient
                 }
             }
             txtIP = IP_lstbox.SelectedItem.ToString();
+            IP1.Text = txtIP.Substring(0, txtIP.IndexOf(":"));
+            Port1.Text = txtIP.Substring(txtIP.IndexOf(":")+1,txtIP.Length-IP1.Text.Length-1);
             btnConnect_Click(sender, e);
         }
 
