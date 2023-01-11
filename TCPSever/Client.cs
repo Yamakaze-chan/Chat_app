@@ -757,5 +757,40 @@ namespace TCPClient
         {
             this.Close();
         }
+
+        private void History_btn_Click(object sender, EventArgs e)
+        {
+            if(client != null)
+            {
+                if(client.IsConnected)
+                {
+                    if(memories_flowlayoutpanel.Visible)
+                    {
+                        memories_flowlayoutpanel.Visible = false;
+                    }
+                    foreach (var h in History)
+                    {
+                        this.History_lstbox.Items.Add(h);
+                    }
+                    history_panel.Visible = true;
+                }
+            }
+        }
+
+        private void Image_btn_Click(object sender, EventArgs e)
+        {
+            if (client != null)
+            {
+                if (client.IsConnected)
+                {
+                    if (search_history.Visible)
+                    {
+                        search_history.Visible = false;
+                        this.History_lstbox.Items.Clear();
+                    }
+                    memories_flowlayoutpanel.Visible = true;
+                }
+            }
+        }
     }
 }

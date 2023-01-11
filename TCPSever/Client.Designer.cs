@@ -125,6 +125,7 @@
             this.Image_btn.PressedState.ImageSize = new System.Drawing.Size(25, 25);
             this.Image_btn.Size = new System.Drawing.Size(36, 43);
             this.Image_btn.TabIndex = 1;
+            this.Image_btn.Click += new System.EventHandler(this.Image_btn_Click);
             // 
             // History_btn
             // 
@@ -139,6 +140,7 @@
             this.History_btn.PressedState.ImageSize = new System.Drawing.Size(25, 25);
             this.History_btn.Size = new System.Drawing.Size(36, 43);
             this.History_btn.TabIndex = 1;
+            this.History_btn.Click += new System.EventHandler(this.History_btn_Click);
             // 
             // Exit_btn
             // 
@@ -189,9 +191,9 @@
             // 
             this.history_panel.Controls.Add(this.History_lstbox);
             this.history_panel.Controls.Add(this.search_history);
-            this.history_panel.Location = new System.Drawing.Point(9, 361);
+            this.history_panel.Location = new System.Drawing.Point(9, 261);
             this.history_panel.Name = "history_panel";
-            this.history_panel.Size = new System.Drawing.Size(277, 285);
+            this.history_panel.Size = new System.Drawing.Size(277, 501);
             this.history_panel.TabIndex = 30;
             this.history_panel.Visible = false;
             // 
@@ -199,12 +201,13 @@
             // 
             this.History_lstbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(0)))), ((int)(((byte)(43)))));
             this.History_lstbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.History_lstbox.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.History_lstbox.ForeColor = System.Drawing.Color.White;
             this.History_lstbox.FormattingEnabled = true;
-            this.History_lstbox.ItemHeight = 20;
+            this.History_lstbox.ItemHeight = 25;
             this.History_lstbox.Location = new System.Drawing.Point(0, 25);
             this.History_lstbox.Name = "History_lstbox";
-            this.History_lstbox.Size = new System.Drawing.Size(277, 260);
+            this.History_lstbox.Size = new System.Drawing.Size(277, 476);
             this.History_lstbox.TabIndex = 1;
             // 
             // search_history
@@ -216,12 +219,13 @@
             this.search_history.Name = "search_history";
             this.search_history.Size = new System.Drawing.Size(277, 25);
             this.search_history.TabIndex = 0;
+            this.search_history.TextChanged += new System.EventHandler(this.search_history_TextChanged);
             // 
             // memories_flowlayoutpanel
             // 
-            this.memories_flowlayoutpanel.Location = new System.Drawing.Point(9, 332);
+            this.memories_flowlayoutpanel.Location = new System.Drawing.Point(9, 261);
             this.memories_flowlayoutpanel.Name = "memories_flowlayoutpanel";
-            this.memories_flowlayoutpanel.Size = new System.Drawing.Size(277, 384);
+            this.memories_flowlayoutpanel.Size = new System.Drawing.Size(277, 501);
             this.memories_flowlayoutpanel.TabIndex = 9;
             // 
             // guna2CircleProgressBar2
@@ -656,8 +660,6 @@
             this.Send_btn.Size = new System.Drawing.Size(37, 37);
             this.Send_btn.TabIndex = 0;
             this.Send_btn.Click += new System.EventHandler(this.btnSend_Click);
-            // 
-            this.flowLayoutPanel1.TabIndex = 6;
             // 
             // icon_panel
             // 
