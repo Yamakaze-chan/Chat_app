@@ -579,8 +579,16 @@ namespace TCPClient
 
         private void icon_btn_Click(object sender, EventArgs e)
         {
-            icon_panel.Visible = true;
-            Add_pic_emotion();
+            if (!icon_panel.Visible)
+            {
+                icon_panel.Visible = true;
+                Add_pic_emotion();
+            }
+            else
+            {
+                icon_panel.Visible = false;
+                icon_panel.Controls.Clear();
+            }
         }
 
         private Guna2GradientPanel Create_rtb(string s, Font f, string send_pp)

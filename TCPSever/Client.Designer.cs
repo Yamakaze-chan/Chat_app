@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Client));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.Minigame_btn = new Guna.UI2.WinForms.Guna2ImageButton();
             this.Image_btn = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -66,8 +65,8 @@
             this.File_btn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.Changtext_btn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.Send_btn = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.icon_panel = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Avatar_btn)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -607,7 +606,7 @@
             this.File_btn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.File_btn.ForeColor = System.Drawing.Color.White;
             this.File_btn.HoverState.Image = global::TCPSever.Properties.Resources.choose_hover;
-            this.File_btn.Image = ((System.Drawing.Image)(resources.GetObject("File_btn.Image")));
+            this.File_btn.Image = global::TCPSever.Properties.Resources.choose;
             this.File_btn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.File_btn.Location = new System.Drawing.Point(636, 9);
             this.File_btn.Name = "File_btn";
@@ -658,17 +657,6 @@
             this.Send_btn.TabIndex = 0;
             this.Send_btn.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            //this.flowLayoutPanel1.Controls.Add(this.guna2GradientPanel7);
-            //this.flowLayoutPanel1.Controls.Add(this.guna2GradientPanel4);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(334, 65);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(770, 649);
-            this.flowLayoutPanel1.TabIndex = 6;
-            // 
             // icon_panel
             // 
             this.icon_panel.Location = new System.Drawing.Point(866, 361);
@@ -677,6 +665,17 @@
             this.icon_panel.TabIndex = 25;
             this.icon_panel.Visible = false;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(334, 65);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(770, 658);
+            this.flowLayoutPanel1.TabIndex = 26;
+            this.flowLayoutPanel1.WrapContents = false;
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 20F);
@@ -684,12 +683,12 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(46)))));
             this.ClientSize = new System.Drawing.Size(1402, 775);
             this.Controls.Add(this.icon_panel);
-            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.guna2Panel5);
             this.Controls.Add(this.guna2Panel4);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -747,7 +746,6 @@
         private Guna.UI2.WinForms.Guna2CircleButton Icon_btn;
         private Guna.UI2.WinForms.Guna2CircleButton Gif_btn;
         private Guna.UI2.WinForms.Guna2TextBox txtMessage;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox7;
         private System.Windows.Forms.FlowLayoutPanel memories_flowlayoutpanel;
         private System.Windows.Forms.FlowLayoutPanel icon_panel;
@@ -760,6 +758,7 @@
         private Guna.UI2.WinForms.Guna2ImageButton Minigame_btn;
         private System.Windows.Forms.ListBox IP_lstbox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 
