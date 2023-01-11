@@ -48,9 +48,9 @@
             this.memories_flowlayoutpanel = new System.Windows.Forms.FlowLayoutPanel();
             this.yourIPlabel = new System.Windows.Forms.Label();
             this.IP_lstbox = new System.Windows.Forms.ListBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Minigame_btn = new System.Windows.Forms.Button();
             this.GIF_btn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.history_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -238,26 +238,12 @@
             // 
             this.IP_lstbox.FormattingEnabled = true;
             this.IP_lstbox.ItemHeight = 16;
-            this.IP_lstbox.Items.AddRange(new object[] {
-            "a",
-            "b",
-            "127.0.0.1:9010"});
             this.IP_lstbox.Location = new System.Drawing.Point(526, 6);
             this.IP_lstbox.Name = "IP_lstbox";
             this.IP_lstbox.Size = new System.Drawing.Size(160, 36);
             this.IP_lstbox.TabIndex = 32;
             this.IP_lstbox.Click += new System.EventHandler(this.IP_lstbox_Click);
             this.IP_lstbox.DoubleClick += new System.EventHandler(this.IP_lstbox_DoubleClick);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::TCPSever.Properties.Resources.ezgif_com_gif_maker__18_;
-            this.pictureBox1.Location = new System.Drawing.Point(1005, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 25;
-            this.pictureBox1.TabStop = false;
             // 
             // Minigame_btn
             // 
@@ -278,6 +264,16 @@
             this.GIF_btn.Text = "GIF";
             this.GIF_btn.UseVisualStyleBackColor = true;
             this.GIF_btn.Click += new System.EventHandler(this.GIF_btn_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::TCPSever.Properties.Resources.ezgif_com_gif_maker__18_;
+            this.pictureBox1.Location = new System.Drawing.Point(1005, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
