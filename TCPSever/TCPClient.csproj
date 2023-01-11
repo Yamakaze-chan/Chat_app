@@ -125,6 +125,24 @@
     <Content Include="Properties\3561859_emoji_emoticon_glued_mute_silent_icon.png" />
     <Content Include="Properties\3561860_emoji_emoticon_emotion_shocked_wonder_icon.png" />
     <Content Include="Properties\3561861_emoji_emoticon_expression_laughter_icon.png" />
+    <None Include="Resources\send.png" />
+    <None Include="Resources\font.png" />
+    <None Include="Resources\exit_hover.png" />
+    <None Include="Resources\exit.png" />
+    <None Include="Resources\emoji.png" />
+    <None Include="Resources\choose.png" />
+    <None Include="Resources\add_hover.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\male2.png" />
+    <None Include="Resources\male1.png" />
+    <None Include="Resources\girl2.png" />
+    <None Include="Resources\girl1.png" />
+    <None Include="Resources\female2.png" />
+    <None Include="Resources\female1.png" />
+    <None Include="Resources\cloud.png" />
+    <None Include="Resources\boy2.png" />
+    <None Include="Resources\boy1.png" />
+    <None Include="Resources\baby1.png" />
     <None Include="Resources\ezgif.com-gif-maker %2818%29.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
