@@ -913,7 +913,7 @@ namespace TCPClient
 
         private void Minigame_btn_Click(object sender, EventArgs e)
         {
-            Form2 f2 = new Form2();
+            Game f2 = new Game();
             f2.ShowDialog();
         }
 
