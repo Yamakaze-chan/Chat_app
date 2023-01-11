@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Client));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.Minigame_btn = new Guna.UI2.WinForms.Guna2ImageButton();
             this.Image_btn = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -161,7 +162,7 @@
             // Avatar_btn
             // 
             this.Avatar_btn.BackColor = System.Drawing.Color.Transparent;
-            this.Avatar_btn.Image = global::TCPSever.Properties.Resources.cloud;
+            this.Avatar_btn.Image = ((System.Drawing.Image)(resources.GetObject("Avatar_btn.Image")));
             this.Avatar_btn.ImageRotate = 0F;
             this.Avatar_btn.Location = new System.Drawing.Point(18, 14);
             this.Avatar_btn.Name = "Avatar_btn";
@@ -274,7 +275,7 @@
             // guna2CirclePictureBox6
             // 
             this.guna2CirclePictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2CirclePictureBox6.Image = global::TCPSever.Properties.Resources.cloud;
+            this.guna2CirclePictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox6.Image")));
             this.guna2CirclePictureBox6.ImageRotate = 0F;
             this.guna2CirclePictureBox6.Location = new System.Drawing.Point(20, 20);
             this.guna2CirclePictureBox6.Name = "guna2CirclePictureBox6";
@@ -320,7 +321,7 @@
             // 
             // guna2CirclePictureBox7
             // 
-            this.guna2CirclePictureBox7.Image = global::TCPSever.Properties.Resources.cloud;
+            this.guna2CirclePictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox7.Image")));
             this.guna2CirclePictureBox7.ImageRotate = 0F;
             this.guna2CirclePictureBox7.Location = new System.Drawing.Point(264, 14);
             this.guna2CirclePictureBox7.Name = "guna2CirclePictureBox7";
@@ -434,14 +435,14 @@
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(240)))), ((int)(((byte)(248)))));
-            this.label5.Location = new System.Drawing.Point(46, 64);
+            this.label5.Location = new System.Drawing.Point(20, 64);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(134, 20);
+            this.label5.Size = new System.Drawing.Size(188, 20);
             this.label5.TabIndex = 2;
             this.label5.Text = "Service is not available";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Port1
             // 

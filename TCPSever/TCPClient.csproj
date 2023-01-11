@@ -67,11 +67,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="Game.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="Game.Designer.cs">
+      <DependentUpon>Game.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,8 +81,8 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="Game.resx">
+      <DependentUpon>Game.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -109,6 +109,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\cloud.png" />
     <None Include="bin\Debug\GIF\com-gif-maker-18--unscreen.gif" />
     <Content Include="Properties\3561837_emoji_emoticon_emoticons_expression_suspicious_icon.png" />
     <Content Include="Properties\3561838_emoji_emoticon_emoticons_expression_face_icon.png" />
@@ -159,7 +160,6 @@
     <None Include="Resources\girl1.png" />
     <None Include="Resources\female2.png" />
     <None Include="Resources\female1.png" />
-    <None Include="Resources\cloud.png" />
     <None Include="Resources\boy2.png" />
     <None Include="Resources\boy1.png" />
     <None Include="Resources\baby1.png" />

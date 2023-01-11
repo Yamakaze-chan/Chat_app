@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace TCPClient
 {
-    public partial class Form2 : Form
+    public partial class Game : Form
     {
         public int size = 50;
         public int level = 1;
         public int thepoint = 1;
         List<Point> points = new List<Point>();
-        public Form2()
+        public Game()
         {
             InitializeComponent();
 
