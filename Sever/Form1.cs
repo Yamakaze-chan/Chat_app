@@ -31,6 +31,7 @@ namespace TCPSever
         string pp_send;
         int receivedataimg;
         List<string> history;
+        List<string> memories;
 
         private void btnStart_Click(object sender, EventArgs e)
         {
@@ -43,6 +44,13 @@ namespace TCPSever
             txtInfo.Text += $"Starting...{Environment.NewLine}";
             btnStart.Enabled = false;
             btnSend.Enabled = true;
+            txtIP.Text.Trim();
+            
+            sever = new SimpleTcpServer(txtIP.Text);
+            sever.Events.ClientConnected += Events_ClientConnected; ;
+            sever.Events.ClientDisconnected += Events_ClientDisconnected;
+            sever.Events.DataReceived += Events_DataReceived;
+            sever.Start();
         }
 
         MemoryStream memoryStream = new MemoryStream(0);
@@ -52,6 +60,7 @@ namespace TCPSever
             btnStart.Enabled = true;
             btnSend.Enabled = false;
             history = new List<string>();
+            memories = new List<string>();
 
         }
 
@@ -120,7 +129,7 @@ namespace TCPSever
                     //Thread.Sleep(10);
                     //MessageBox.Show("Done");
                     //string path = "C:\\Users\\ACER\\Desktop\\picture\\outfile.png";
-                    string path = "outfile.gif";
+                    string path = DateTime.Now.ToString("yyyyMMddTHHmmss") + ".gif";
                     FileStream fs = new FileStream(path, FileMode.Create);
                     fs.Write(memoryStream.GetBuffer(), 0, (int)memoryStream.Length);
                     //memoryStream.SetLength(0);
@@ -136,7 +145,8 @@ namespace TCPSever
                     {
                         //Thread.Sleep(1000);
                         sendFile(path);
-                        File.Delete(path);
+                        memories.Add(path);
+                        //File.Delete(path);
                         //memoryStream.SetLength(0);
                         //memoryStream.Close();
                         //memoryStream.Dispose();
@@ -275,6 +285,25 @@ namespace TCPSever
             }
         }
 
+        private void sendmemory(string ip,string filePath)
+        {
+            if (sever.IsListening)
+            {
+                FileStream fs = new FileStream(filePath, FileMode.Open); ;
+                long totalBytes = fs.Length;
+                string senddata = "therearefilesofsevermemories" + totalBytes.ToString();
+                byte[] byteArray = Encoding.UTF8.GetBytes(senddata);
+                MemoryStream stream = new MemoryStream(byteArray);
+                //MessageBox.Show(stream.Length.ToString());
+                sever.Send(ip, stream.Length, stream);
+                Thread.Sleep(50);
+                sever.Send(ip, fs.Length, fs);
+                Thread.Sleep(50);
+                Thread.Sleep(200);
+                fs.Close();
+            }
+        }
+
         private void Send_history(string ip)
         {
             string encode_string = "thisisahistoryoftheseveryouareonlineandyouripis"+ip+"/+/+/+";
@@ -283,6 +312,12 @@ namespace TCPSever
             byte[] byteArray = Encoding.UTF8.GetBytes(senddata);
             MemoryStream stream = new MemoryStream(byteArray);
             sever.Send(ip, stream.Length, stream);
+            Thread.Sleep(250);
+            foreach (var m in memories)
+            {
+                sendmemory(ip,m);
+                Thread.Sleep(100);
+            }
         }
 
         public static bool IsValidImage(MemoryStream ms)

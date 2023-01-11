@@ -39,15 +39,20 @@
             this.Changtext_btn = new System.Windows.Forms.Button();
             this.Icon_btn = new System.Windows.Forms.Button();
             this.icon_panel = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.CreateSeverbtn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.history_panel = new System.Windows.Forms.Panel();
-            this.search_history = new System.Windows.Forms.TextBox();
             this.History_lstbox = new System.Windows.Forms.ListBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.search_history = new System.Windows.Forms.TextBox();
+            this.memories_flowlayoutpanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.yourIPlabel = new System.Windows.Forms.Label();
+            this.IP_lstbox = new System.Windows.Forms.ListBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Minigame_btn = new System.Windows.Forms.Button();
+            this.GIF_btn = new System.Windows.Forms.Button();
             this.history_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSend
@@ -155,16 +160,6 @@
             this.icon_panel.TabIndex = 24;
             this.icon_panel.Visible = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::TCPSever.Properties.Resources.ezgif_com_gif_maker__18_;
-            this.pictureBox1.Location = new System.Drawing.Point(638, 25);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 25;
-            this.pictureBox1.TabStop = false;
-            // 
             // CreateSeverbtn
             // 
             this.CreateSeverbtn.Location = new System.Drawing.Point(638, 533);
@@ -177,6 +172,7 @@
             // 
             // button2
             // 
+            this.button2.Enabled = false;
             this.button2.Location = new System.Drawing.Point(638, 572);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(98, 23);
@@ -205,14 +201,6 @@
             this.history_panel.TabIndex = 29;
             this.history_panel.Visible = false;
             // 
-            // search_history
-            // 
-            this.search_history.Location = new System.Drawing.Point(0, 0);
-            this.search_history.Name = "search_history";
-            this.search_history.Size = new System.Drawing.Size(261, 22);
-            this.search_history.TabIndex = 0;
-            this.search_history.TextChanged += new System.EventHandler(this.search_history_TextChanged);
-            // 
             // History_lstbox
             // 
             this.History_lstbox.FormattingEnabled = true;
@@ -222,11 +210,85 @@
             this.History_lstbox.Size = new System.Drawing.Size(261, 244);
             this.History_lstbox.TabIndex = 1;
             // 
+            // search_history
+            // 
+            this.search_history.Location = new System.Drawing.Point(0, 0);
+            this.search_history.Name = "search_history";
+            this.search_history.Size = new System.Drawing.Size(261, 22);
+            this.search_history.TabIndex = 0;
+            this.search_history.TextChanged += new System.EventHandler(this.search_history_TextChanged);
+            // 
+            // memories_flowlayoutpanel
+            // 
+            this.memories_flowlayoutpanel.AutoScroll = true;
+            this.memories_flowlayoutpanel.Location = new System.Drawing.Point(877, 65);
+            this.memories_flowlayoutpanel.Name = "memories_flowlayoutpanel";
+            this.memories_flowlayoutpanel.Size = new System.Drawing.Size(240, 355);
+            this.memories_flowlayoutpanel.TabIndex = 30;
+            // 
+            // yourIPlabel
+            // 
+            this.yourIPlabel.Location = new System.Drawing.Point(15, 38);
+            this.yourIPlabel.Name = "yourIPlabel";
+            this.yourIPlabel.Size = new System.Drawing.Size(505, 23);
+            this.yourIPlabel.TabIndex = 31;
+            this.yourIPlabel.Text = "Your IP is :";
+            // 
+            // IP_lstbox
+            // 
+            this.IP_lstbox.FormattingEnabled = true;
+            this.IP_lstbox.ItemHeight = 16;
+            this.IP_lstbox.Items.AddRange(new object[] {
+            "a",
+            "b",
+            "127.0.0.1:9010"});
+            this.IP_lstbox.Location = new System.Drawing.Point(526, 6);
+            this.IP_lstbox.Name = "IP_lstbox";
+            this.IP_lstbox.Size = new System.Drawing.Size(160, 36);
+            this.IP_lstbox.TabIndex = 32;
+            this.IP_lstbox.Click += new System.EventHandler(this.IP_lstbox_Click);
+            this.IP_lstbox.DoubleClick += new System.EventHandler(this.IP_lstbox_DoubleClick);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::TCPSever.Properties.Resources.ezgif_com_gif_maker__18_;
+            this.pictureBox1.Location = new System.Drawing.Point(1005, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Minigame_btn
+            // 
+            this.Minigame_btn.Location = new System.Drawing.Point(638, 641);
+            this.Minigame_btn.Name = "Minigame_btn";
+            this.Minigame_btn.Size = new System.Drawing.Size(98, 23);
+            this.Minigame_btn.TabIndex = 33;
+            this.Minigame_btn.Text = "Minigame";
+            this.Minigame_btn.UseVisualStyleBackColor = true;
+            this.Minigame_btn.Click += new System.EventHandler(this.Minigame_btn_Click);
+            // 
+            // GIF_btn
+            // 
+            this.GIF_btn.Location = new System.Drawing.Point(763, 533);
+            this.GIF_btn.Name = "GIF_btn";
+            this.GIF_btn.Size = new System.Drawing.Size(75, 23);
+            this.GIF_btn.TabIndex = 34;
+            this.GIF_btn.Text = "GIF";
+            this.GIF_btn.UseVisualStyleBackColor = true;
+            this.GIF_btn.Click += new System.EventHandler(this.GIF_btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1117, 720);
+            this.Controls.Add(this.GIF_btn);
+            this.Controls.Add(this.Minigame_btn);
+            this.Controls.Add(this.IP_lstbox);
+            this.Controls.Add(this.yourIPlabel);
+            this.Controls.Add(this.memories_flowlayoutpanel);
             this.Controls.Add(this.history_panel);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -246,9 +308,9 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.history_panel.ResumeLayout(false);
             this.history_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,6 +336,11 @@
         private System.Windows.Forms.Panel history_panel;
         private System.Windows.Forms.TextBox search_history;
         private System.Windows.Forms.ListBox History_lstbox;
+        private System.Windows.Forms.FlowLayoutPanel memories_flowlayoutpanel;
+        private System.Windows.Forms.Label yourIPlabel;
+        private System.Windows.Forms.ListBox IP_lstbox;
+        private System.Windows.Forms.Button Minigame_btn;
+        private System.Windows.Forms.Button GIF_btn;
     }
 }
 
