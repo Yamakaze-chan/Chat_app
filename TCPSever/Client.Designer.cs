@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Client));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.Minigame_btn = new Guna.UI2.WinForms.Guna2ImageButton();
             this.Image_btn = new Guna.UI2.WinForms.Guna2ImageButton();
