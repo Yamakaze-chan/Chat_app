@@ -66,10 +66,8 @@
             this.button1 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.Changtext_btn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.btnSend = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.guna2GradientPanel4 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.icon_panel = new System.Windows.Forms.FlowLayoutPanel();
-            this.guna2GradientPanel7 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Avatar_btn)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -84,7 +82,6 @@
             this.guna2GradientPanel3.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -595,6 +592,7 @@
             this.Icon_btn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.Icon_btn.Size = new System.Drawing.Size(37, 37);
             this.Icon_btn.TabIndex = 0;
+            this.Icon_btn.Click += new System.EventHandler(this.icon_btn_Click);
             // 
             // button1
             // 
@@ -657,21 +655,8 @@
             this.btnSend.TabIndex = 0;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // guna2GradientPanel4
-            // 
-            this.guna2GradientPanel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientPanel4.BorderRadius = 20;
-            this.guna2GradientPanel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(37)))), ((int)(((byte)(133)))));
-            this.guna2GradientPanel4.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(9)))), ((int)(((byte)(183)))));
-            this.guna2GradientPanel4.Location = new System.Drawing.Point(3, 56);
-            this.guna2GradientPanel4.Name = "guna2GradientPanel4";
-            this.guna2GradientPanel4.Size = new System.Drawing.Size(510, 47);
-            this.guna2GradientPanel4.TabIndex = 6;
-            // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.guna2GradientPanel7);
-            this.flowLayoutPanel1.Controls.Add(this.guna2GradientPanel4);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(334, 65);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -685,17 +670,6 @@
             this.icon_panel.Size = new System.Drawing.Size(232, 355);
             this.icon_panel.TabIndex = 25;
             this.icon_panel.Visible = false;
-            // 
-            // guna2GradientPanel7
-            // 
-            this.guna2GradientPanel7.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientPanel7.BorderRadius = 20;
-            this.guna2GradientPanel7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(182)))));
-            this.guna2GradientPanel7.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(202)))), ((int)(((byte)(228)))));
-            this.guna2GradientPanel7.Location = new System.Drawing.Point(3, 3);
-            this.guna2GradientPanel7.Name = "guna2GradientPanel7";
-            this.guna2GradientPanel7.Size = new System.Drawing.Size(510, 47);
-            this.guna2GradientPanel7.TabIndex = 6;
             // 
             // Client
             // 
@@ -735,7 +709,6 @@
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
             this.guna2Panel5.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -758,7 +731,6 @@
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2GradientButton btnConnect1;
         private Guna.UI2.WinForms.Guna2Button btnAdd;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel4;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox6;
         private Guna.UI2.WinForms.Guna2CircleProgressBar guna2CircleProgressBar1;
         private Guna.UI2.WinForms.Guna2CircleProgressBar guna2CircleProgressBar2;
@@ -782,7 +754,6 @@
         private Guna.UI2.WinForms.Guna2ImageButton Minigame_btn;
         private System.Windows.Forms.ListBox IP_lstbox;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel7;
     }
 }
 

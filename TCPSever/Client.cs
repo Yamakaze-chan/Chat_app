@@ -1,4 +1,5 @@
-﻿using SuperSimpleTcp;
+﻿using Guna.UI2.WinForms;
+using SuperSimpleTcp;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -78,6 +79,7 @@ namespace TCPClient
                 try
                 {
                     txtIP = IP1.Text + ":" + Port1.Text;
+                    label5.Text = "Server is connected";
                     //try connect to our sever
                     client = new SimpleTcpClient(txtIP);
                     client.Events.Connected += Events_Connected;
@@ -86,6 +88,7 @@ namespace TCPClient
                     client.Connect();
                     btnConnect1.Text = "Disconnect";
                     btnSend.Enabled = true;
+                    txtMessage.Text = "";
                 }
                 catch (Exception ex)
                 {
@@ -130,6 +133,7 @@ namespace TCPClient
                     this.flowLayoutPanel1.Controls.Clear();
                     this.yourIPlabel.Text = "";
                     memories_flowlayoutpanel.Controls.Clear();
+                    label5.Text = "Server is disconnected";
                 }
             }
         }
@@ -329,7 +333,7 @@ namespace TCPClient
             this.Invoke((MethodInvoker)delegate
             {
                 System.Windows.Forms.Label lb = new System.Windows.Forms.Label();
-                lb.Text = $"Sever {e.IpPort} connected.";
+                //lb.Text = $"Sever {e.IpPort} connected.";
                 lb.MaximumSize = new Size(550, 0);
                 lb.AutoSize = true;
                 lb.BorderStyle = BorderStyle.FixedSingle;
@@ -339,7 +343,7 @@ namespace TCPClient
                 this.flowLayoutPanel1.VerticalScroll.Visible = false;
                 this.flowLayoutPanel1.HorizontalScroll.Visible = false;
                 this.flowLayoutPanel1.AutoScroll = true;
-                this.flowLayoutPanel1.Controls.Add(lb);
+                //this.flowLayoutPanel1.Controls.Add(lb);
                 this.flowLayoutPanel1.AutoScrollPosition = new Point(0, flowLayoutPanel1.VerticalScroll.Maximum);
             });
         }
@@ -501,40 +505,45 @@ namespace TCPClient
         private void txtMessage_KeyPress(object sender, KeyPressEventArgs e)
         {
             Console.WriteLine("__________");
-
-            bool flag = true;
-            int index = txtMessage.SelectionStart;
-            string temp = string.Empty;
-            if (txtMessage.Text != null)
+            if (client != null)
             {
-                if (e.KeyChar == (char)Keys.Back)
+                if (client.IsConnected)
                 {
-                    if (index > -1)
+                    bool flag = true;
+                    int index = txtMessage.SelectionStart;
+                    string temp = string.Empty;
+                    if (txtMessage.Text != null)
                     {
-                        if (index == 0)
+                        if (e.KeyChar == (char)Keys.Back)
                         {
-                            going_to_send.Clear();
+                            if (index > -1)
+                            {
+                                if (index == 0)
+                                {
+                                    going_to_send.Clear();
+                                }
+                                else
+                                {
+                                    going_to_send.RemoveRange(index, 1);
+                                }
+                            }
+                        }
+                        else if (e.KeyChar == (char)Keys.Enter)
+                        {
+                            btnSend_Click(sender, e);
+                            //History.Add(txtMessage.Text);
                         }
                         else
                         {
-                            going_to_send.RemoveRange(index, 1);
+                            going_to_send.Insert(index, e.KeyChar);
                         }
                     }
-                }
-                else if (e.KeyChar == (char)Keys.Enter)
-                {
-                    btnSend_Click(sender, e);
-                    //History.Add(txtMessage.Text);
-                }
-                else
-                {
-                    going_to_send.Insert(index, e.KeyChar);
+
+
+                    going_to_send.ForEach(i => Console.WriteLine(i));
+                    Console.WriteLine(txtMessage.Text.Length);
                 }
             }
-
-
-            going_to_send.ForEach(i => Console.WriteLine(i));
-            Console.WriteLine(txtMessage.Text.Length);
         }
 
         private void Add_pic_emotion()
@@ -574,12 +583,15 @@ namespace TCPClient
             Add_pic_emotion();
         }
 
-        private RichTextBox Create_rtb(string s, Font f, string send_pp)
+        private Guna2GradientPanel Create_rtb(string s, Font f, string send_pp)
         {
-            System.Windows.Forms.RichTextBox rtb = new System.Windows.Forms.RichTextBox();
+            Label rtb = new Label();
             rtb.Text = $"{send_pp}: " + s;
+            rtb.Location = new Point(15, 15);
             rtb.Width = 350;
-            rtb.ReadOnly = true;
+            rtb.BackColor = Color.Transparent;
+            rtb.ForeColor = Color.White;
+            rtb.TextAlign = ContentAlignment.MiddleLeft;
             rtb.Click += (z, ee) => HideCaret(rtb.Handle);
             var cvt = new FontConverter();
             rtb.Font = f;
@@ -590,8 +602,25 @@ namespace TCPClient
             }
             float height = rtb.Font.GetHeight();
             int high = (int)Math.Round(height);
-            rtb.BorderStyle = BorderStyle.None;
-            return rtb;
+            Guna2GradientPanel p = new Guna2GradientPanel();
+            if (send_pp == "You")
+            {
+                p.FillColor = Color.FromArgb(247, 37, 133);
+                p.FillColor2 = Color.FromArgb(114, 9, 183);
+            }
+            else
+            {
+                p.FillColor = Color.FromArgb(0, 119, 182);
+                p.FillColor2 = Color.FromArgb(72, 202, 228);
+            }
+            p.MaximumSize = new Size(770, 0);
+
+            p.GradientMode = LinearGradientMode.Horizontal;
+            p.BorderRadius = 20;
+
+            p.Size = new Size(rtb.Width + 30, rtb.Height + 30);
+            p.Controls.Add(rtb);
+            return p;
         }
 
         private void CreateSeverbtn_Click(object sender, EventArgs e)
@@ -662,22 +691,6 @@ namespace TCPClient
         {
             yourIPlabel.Text = "Your IP is : " + s;
         }
-
-        private void IP_lstbox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        //public void loadform(object Form)
-        //{
-        //    if (Application.OpenForms["Form2"] != null)
-        //    {
-        //        Form f = Form as Form;
-        //        f.TopLevel = false;
-        //        //f.Dock = DockStyle.Fill;
-        //        f.Show();
-        //    }
-        //}
 
         private void Minigame_btn_Click(object sender, EventArgs e)
         {
