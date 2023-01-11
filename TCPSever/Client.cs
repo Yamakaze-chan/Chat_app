@@ -483,7 +483,7 @@ namespace TCPClient
 
 
         //    //convert image to memorystream
-            
+
         //    long totalBytes = img_to_send.Length;
         //    string senddata = "iushcxlchiasdchjaslfcdajhiodcadshjca" + totalBytes.ToString();
         //    byte[] byteArray = Encoding.UTF8.GetBytes(senddata);
@@ -604,7 +604,7 @@ namespace TCPClient
         //private void txtMessage_KeyPress(object sender, KeyPressEventArgs e)
         //{
         //    Console.WriteLine("__________");
-            
+
         //    bool flag = true;
         //    int index = txtMessage.SelectionStart;
         //    string temp = string.Empty;
@@ -634,8 +634,8 @@ namespace TCPClient
         //                going_to_send.Insert(index, e.KeyChar);
         //        }
         //    }
-            
-            
+
+
         //    going_to_send.ForEach(i => Console.WriteLine(i));
         //    //Console.WriteLine(going_to_send.Count);
         //    //Console.WriteLine(txtMessage.SelectionStart);
