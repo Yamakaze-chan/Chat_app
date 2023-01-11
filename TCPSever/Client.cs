@@ -85,7 +85,7 @@ namespace TCPClient
                     client.Events.Disconnected += Events_Disconnected;
                     client.Connect();
                     btnConnect1.Text = "Disconnect";
-                    btnSend.Enabled = true;
+                    Send_btn.Enabled = true;
                 }
                 catch (Exception ex)
                 {
@@ -123,7 +123,7 @@ namespace TCPClient
                         }
                     }
                     client.Disconnect();
-                    btnSend.Enabled = !true;
+                    Send_btn.Enabled = !true;
 
                     history_panel.Visible = false;
                     this.History_lstbox.Items.Clear();
@@ -137,7 +137,7 @@ namespace TCPClient
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            btnSend.Enabled = true;
+            Send_btn.Enabled = true;
             going_to_send = new List<char>();
             History = new List<string>();
             History_sever = new List<string>();
