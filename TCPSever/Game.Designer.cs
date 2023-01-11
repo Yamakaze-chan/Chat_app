@@ -173,7 +173,7 @@
             // 
             // title
             // 
-            this.title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(214)))), ((int)(((byte)(160)))));
+            this.title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(23)))), ((int)(((byte)(158)))));
             this.title.Controls.Add(this.label1);
             this.title.Controls.Add(this.button1);
             this.title.Controls.Add(this.label2);

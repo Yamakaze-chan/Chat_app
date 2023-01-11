@@ -41,11 +41,11 @@
             this.memories_flowlayoutpanel = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2CircleProgressBar2 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             this.guna2CircleProgressBar1 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
-            this.guna2CirclePictureBox6 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.Avatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.guna2CirclePictureBox7 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.Avatar_Ip = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.yourIPlabel = new System.Windows.Forms.Label();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.IP_lstbox = new System.Windows.Forms.ListBox();
@@ -74,10 +74,10 @@
             this.history_panel.SuspendLayout();
             this.guna2CircleProgressBar2.SuspendLayout();
             this.guna2CircleProgressBar1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Avatar)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Avatar_Ip)).BeginInit();
             this.guna2Panel4.SuspendLayout();
             this.guna2GradientPanel3.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
@@ -173,6 +173,7 @@
             this.Avatar_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Avatar_btn.TabIndex = 1;
             this.Avatar_btn.TabStop = false;
+            this.Avatar_btn.Click += new System.EventHandler(this.Avatar_btn_Click);
             // 
             // guna2Panel2
             // 
@@ -255,7 +256,7 @@
             this.guna2CircleProgressBar1.Animated = true;
             this.guna2CircleProgressBar1.AnimationSpeed = 0.4F;
             this.guna2CircleProgressBar1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2CircleProgressBar1.Controls.Add(this.guna2CirclePictureBox6);
+            this.guna2CircleProgressBar1.Controls.Add(this.Avatar);
             this.guna2CircleProgressBar1.FillColor = System.Drawing.Color.Empty;
             this.guna2CircleProgressBar1.FillThickness = 3;
             this.guna2CircleProgressBar1.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -272,17 +273,18 @@
             this.guna2CircleProgressBar1.Text = "guna2CircleProgressBar1";
             this.guna2CircleProgressBar1.Value = 45;
             // 
-            // guna2CirclePictureBox6
+            // Avatar
             // 
-            this.guna2CirclePictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2CirclePictureBox6.ImageRotate = 0F;
-            this.guna2CirclePictureBox6.Location = new System.Drawing.Point(20, 20);
-            this.guna2CirclePictureBox6.Name = "guna2CirclePictureBox6";
-            this.guna2CirclePictureBox6.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox6.Size = new System.Drawing.Size(100, 100);
-            this.guna2CirclePictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2CirclePictureBox6.TabIndex = 7;
-            this.guna2CirclePictureBox6.TabStop = false;
+            this.Avatar.BackColor = System.Drawing.Color.Transparent;
+            this.Avatar.Image = ((System.Drawing.Image)(resources.GetObject("Avatar.Image")));
+            this.Avatar.ImageRotate = 0F;
+            this.Avatar.Location = new System.Drawing.Point(20, 20);
+            this.Avatar.Name = "Avatar";
+            this.Avatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.Avatar.Size = new System.Drawing.Size(100, 100);
+            this.Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Avatar.TabIndex = 7;
+            this.Avatar.TabStop = false;
             // 
             // label7
             // 
@@ -300,7 +302,7 @@
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(1)))), ((int)(((byte)(82)))));
             this.guna2Panel3.Controls.Add(this.pictureBox1);
-            this.guna2Panel3.Controls.Add(this.guna2CirclePictureBox7);
+            this.guna2Panel3.Controls.Add(this.Avatar_Ip);
             this.guna2Panel3.Controls.Add(this.yourIPlabel);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel3.Location = new System.Drawing.Point(73, 0);
@@ -318,16 +320,17 @@
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
             // 
-            // guna2CirclePictureBox7
+            // Avatar_Ip
             // 
-            this.guna2CirclePictureBox7.ImageRotate = 0F;
-            this.guna2CirclePictureBox7.Location = new System.Drawing.Point(264, 14);
-            this.guna2CirclePictureBox7.Name = "guna2CirclePictureBox7";
-            this.guna2CirclePictureBox7.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox7.Size = new System.Drawing.Size(36, 36);
-            this.guna2CirclePictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2CirclePictureBox7.TabIndex = 7;
-            this.guna2CirclePictureBox7.TabStop = false;
+            this.Avatar_Ip.Image = ((System.Drawing.Image)(resources.GetObject("Avatar_Ip.Image")));
+            this.Avatar_Ip.ImageRotate = 0F;
+            this.Avatar_Ip.Location = new System.Drawing.Point(264, 14);
+            this.Avatar_Ip.Name = "Avatar_Ip";
+            this.Avatar_Ip.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.Avatar_Ip.Size = new System.Drawing.Size(36, 36);
+            this.Avatar_Ip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Avatar_Ip.TabIndex = 7;
+            this.Avatar_Ip.TabStop = false;
             // 
             // yourIPlabel
             // 
@@ -726,11 +729,11 @@
             this.history_panel.PerformLayout();
             this.guna2CircleProgressBar2.ResumeLayout(false);
             this.guna2CircleProgressBar1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Avatar)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Avatar_Ip)).EndInit();
             this.guna2Panel4.ResumeLayout(false);
             this.guna2GradientPanel3.ResumeLayout(false);
             this.guna2GradientPanel1.ResumeLayout(false);
@@ -758,7 +761,7 @@
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2GradientButton btnConnect1;
         private Guna.UI2.WinForms.Guna2Button btnAdd;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox6;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox Avatar;
         private Guna.UI2.WinForms.Guna2CircleProgressBar guna2CircleProgressBar1;
         private Guna.UI2.WinForms.Guna2CircleProgressBar guna2CircleProgressBar2;
         private System.Windows.Forms.Label label7;
@@ -768,7 +771,7 @@
         private Guna.UI2.WinForms.Guna2CircleButton Icon_btn;
         private Guna.UI2.WinForms.Guna2CircleButton Gif_btn;
         private Guna.UI2.WinForms.Guna2TextBox txtMessage;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox7;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox Avatar_Ip;
         private System.Windows.Forms.FlowLayoutPanel memories_flowlayoutpanel;
         private System.Windows.Forms.FlowLayoutPanel icon_panel;
         private System.Windows.Forms.PictureBox pictureBox1;
