@@ -286,11 +286,11 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(240)))), ((int)(((byte)(248)))));
-            this.label7.Location = new System.Drawing.Point(122, 233);
+            this.label7.Location = new System.Drawing.Point(107, 233);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 25);
+            this.label7.Size = new System.Drawing.Size(85, 25);
             this.label7.TabIndex = 2;
-            this.label7.Text = "Active";
+            this.label7.Text = "No activity";
             // 
             // guna2Panel3
             // 
@@ -656,6 +656,8 @@
             this.Send_btn.Size = new System.Drawing.Size(37, 37);
             this.Send_btn.TabIndex = 0;
             this.Send_btn.Click += new System.EventHandler(this.btnSend_Click);
+            // 
+            this.flowLayoutPanel1.TabIndex = 6;
             // 
             // icon_panel
             // 

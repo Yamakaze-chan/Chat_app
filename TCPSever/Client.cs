@@ -80,6 +80,7 @@ namespace TCPClient
                 {
                     txtIP = IP1.Text + ":" + Port1.Text;
                     label5.Text = "Server is connected";
+                    label7.Text = "Active";
                     //try connect to our sever
                     client = new SimpleTcpClient(txtIP);
                     client.Events.Connected += Events_Connected;
@@ -134,6 +135,7 @@ namespace TCPClient
                     this.yourIPlabel.Text = "";
                     memories_flowlayoutpanel.Controls.Clear();
                     label5.Text = "Server is disconnected";
+                    label7.Text = "Idle";
                 }
             }
         }
@@ -353,7 +355,7 @@ namespace TCPClient
             //Choose file to send
             string sSelectedFile;
             OpenFileDialog choofdlog = new OpenFileDialog();
-            choofdlog.Filter = "All Files (*.*)|*.*";
+            choofdlog.Filter = "Image Files (*.BMP;*.JPG;*.GIF;*.gif;*.jfif)|(*.BMP;*.JPG;*.GIF;*.gif;*.jfif)";
             choofdlog.FilterIndex = 1;
             choofdlog.Multiselect = true;
 
