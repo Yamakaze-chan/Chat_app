@@ -143,6 +143,16 @@ namespace TCPSever.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap com_gif_maker_18__unscreen {
+            get {
+                object obj = ResourceManager.GetObject("com-gif-maker-18--unscreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap emoji {
             get {
                 object obj = ResourceManager.GetObject("emoji", resourceCulture);

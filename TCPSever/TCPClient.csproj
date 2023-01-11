@@ -109,6 +109,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\GIF\com-gif-maker-18--unscreen.gif" />
     <Content Include="Properties\3561837_emoji_emoticon_emoticons_expression_suspicious_icon.png" />
     <Content Include="Properties\3561838_emoji_emoticon_emoticons_expression_face_icon.png" />
     <Content Include="Properties\3561839_emoji_emoticon_silly_icon.png" />
