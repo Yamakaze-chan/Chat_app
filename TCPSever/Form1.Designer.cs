@@ -205,9 +205,9 @@
             // 
             this.History_lstbox.FormattingEnabled = true;
             this.History_lstbox.ItemHeight = 16;
-            this.History_lstbox.Location = new System.Drawing.Point(0, 20);
+            this.History_lstbox.Location = new System.Drawing.Point(0, 52);
             this.History_lstbox.Name = "History_lstbox";
-            this.History_lstbox.Size = new System.Drawing.Size(261, 244);
+            this.History_lstbox.Size = new System.Drawing.Size(261, 212);
             this.History_lstbox.TabIndex = 1;
             // 
             // search_history

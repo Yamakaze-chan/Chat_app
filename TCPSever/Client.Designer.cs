@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Client));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.Minigame_btn = new Guna.UI2.WinForms.Guna2ImageButton();
             this.Image_btn = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -68,6 +67,7 @@
             this.Send_btn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.icon_panel = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Avatar_btn)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -162,7 +162,6 @@
             // Avatar_btn
             // 
             this.Avatar_btn.BackColor = System.Drawing.Color.Transparent;
-            this.Avatar_btn.Image = ((System.Drawing.Image)(resources.GetObject("Avatar_btn.Image")));
             this.Avatar_btn.ImageRotate = 0F;
             this.Avatar_btn.Location = new System.Drawing.Point(18, 14);
             this.Avatar_btn.Name = "Avatar_btn";
@@ -276,7 +275,6 @@
             // guna2CirclePictureBox6
             // 
             this.guna2CirclePictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2CirclePictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox6.Image")));
             this.guna2CirclePictureBox6.ImageRotate = 0F;
             this.guna2CirclePictureBox6.Location = new System.Drawing.Point(20, 20);
             this.guna2CirclePictureBox6.Name = "guna2CirclePictureBox6";
@@ -322,7 +320,6 @@
             // 
             // guna2CirclePictureBox7
             // 
-            this.guna2CirclePictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox7.Image")));
             this.guna2CirclePictureBox7.ImageRotate = 0F;
             this.guna2CirclePictureBox7.Location = new System.Drawing.Point(264, 14);
             this.guna2CirclePictureBox7.Name = "guna2CirclePictureBox7";
@@ -346,6 +343,7 @@
             // 
             // guna2Panel4
             // 
+            this.guna2Panel4.Controls.Add(this.label2);
             this.guna2Panel4.Controls.Add(this.IP_lstbox);
             this.guna2Panel4.Controls.Add(this.guna2GradientPanel3);
             this.guna2Panel4.Controls.Add(this.guna2GradientPanel1);
@@ -357,12 +355,17 @@
             // 
             // IP_lstbox
             // 
+            this.IP_lstbox.BackColor = System.Drawing.Color.Violet;
+            this.IP_lstbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.IP_lstbox.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IP_lstbox.ForeColor = System.Drawing.Color.White;
             this.IP_lstbox.FormattingEnabled = true;
-            this.IP_lstbox.ItemHeight = 20;
-            this.IP_lstbox.Location = new System.Drawing.Point(17, 296);
+            this.IP_lstbox.ItemHeight = 23;
+            this.IP_lstbox.Location = new System.Drawing.Point(17, 319);
             this.IP_lstbox.Name = "IP_lstbox";
-            this.IP_lstbox.Size = new System.Drawing.Size(227, 24);
+            this.IP_lstbox.Size = new System.Drawing.Size(227, 23);
             this.IP_lstbox.TabIndex = 33;
+            this.IP_lstbox.Visible = false;
             this.IP_lstbox.Click += new System.EventHandler(this.IP_lstbox_Click);
             this.IP_lstbox.DoubleClick += new System.EventHandler(this.IP_lstbox_DoubleClick);
             // 
@@ -684,6 +687,17 @@
             this.flowLayoutPanel1.TabIndex = 26;
             this.flowLayoutPanel1.WrapContents = false;
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(17, 287);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(221, 25);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "List of saved server:";
+            this.label2.Visible = false;
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 20F);
@@ -767,6 +781,7 @@
         private System.Windows.Forms.ListBox IP_lstbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

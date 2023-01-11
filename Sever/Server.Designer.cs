@@ -37,6 +37,7 @@
             this.Exit_btn = new System.Windows.Forms.Button();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.txtInfo = new System.Windows.Forms.TextBox();
+            this.btnStop = new System.Windows.Forms.Button();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,10 +73,10 @@
             this.listClientIP.ForeColor = System.Drawing.Color.White;
             this.listClientIP.FormattingEnabled = true;
             this.listClientIP.ItemHeight = 25;
-            this.listClientIP.Location = new System.Drawing.Point(415, 127);
+            this.listClientIP.Location = new System.Drawing.Point(415, 152);
             this.listClientIP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listClientIP.Name = "listClientIP";
-            this.listClientIP.Size = new System.Drawing.Size(348, 375);
+            this.listClientIP.Size = new System.Drawing.Size(348, 350);
             this.listClientIP.TabIndex = 7;
             // 
             // label3
@@ -83,7 +84,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(411, 79);
+            this.label3.Location = new System.Drawing.Point(411, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 23);
             this.label3.TabIndex = 8;
@@ -119,7 +120,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(29, 79);
+            this.label2.Location = new System.Drawing.Point(29, 105);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 23);
             this.label2.TabIndex = 8;
@@ -129,10 +130,10 @@
             // Exit_btn
             // 
             this.Exit_btn.ForeColor = System.Drawing.Color.Black;
-            this.Exit_btn.Location = new System.Drawing.Point(675, 25);
+            this.Exit_btn.Location = new System.Drawing.Point(647, 24);
             this.Exit_btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Exit_btn.Name = "Exit_btn";
-            this.Exit_btn.Size = new System.Drawing.Size(88, 26);
+            this.Exit_btn.Size = new System.Drawing.Size(116, 26);
             this.Exit_btn.TabIndex = 6;
             this.Exit_btn.Text = "Exit";
             this.Exit_btn.UseVisualStyleBackColor = true;
@@ -140,6 +141,7 @@
             // 
             // guna2CustomGradientPanel1
             // 
+            this.guna2CustomGradientPanel1.Controls.Add(this.btnStop);
             this.guna2CustomGradientPanel1.Controls.Add(this.label1);
             this.guna2CustomGradientPanel1.Controls.Add(this.txtInfo);
             this.guna2CustomGradientPanel1.Controls.Add(this.txtIP);
@@ -165,15 +167,28 @@
             this.txtInfo.Enabled = false;
             this.txtInfo.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInfo.ForeColor = System.Drawing.Color.White;
-            this.txtInfo.Location = new System.Drawing.Point(33, 127);
+            this.txtInfo.Location = new System.Drawing.Point(33, 154);
             this.txtInfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtInfo.Multiline = true;
             this.txtInfo.Name = "txtInfo";
             this.txtInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtInfo.Size = new System.Drawing.Size(348, 357);
+            this.txtInfo.Size = new System.Drawing.Size(348, 348);
             this.txtInfo.TabIndex = 2;
             // 
-            // Form1
+            // btnStop
+            // 
+            this.btnStop.ForeColor = System.Drawing.Color.Black;
+            this.btnStop.Location = new System.Drawing.Point(415, 59);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(142, 26);
+            this.btnStop.TabIndex = 10;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Visible = false;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
+            // Server
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -184,7 +199,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "Form1";
+            this.Name = "Server";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Server";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -205,6 +220,7 @@
         private System.Windows.Forms.Button Exit_btn;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private System.Windows.Forms.TextBox txtInfo;
+        private System.Windows.Forms.Button btnStop;
     }
 }
 

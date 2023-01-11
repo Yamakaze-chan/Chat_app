@@ -35,6 +35,7 @@ namespace TCPSever
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            txtInfo.Clear();
             txtIP.Text.Trim();
             sever = new SimpleTcpServer(txtIP.Text);
             sever.Events.ClientConnected += Events_ClientConnected; ;
@@ -42,7 +43,8 @@ namespace TCPSever
             sever.Events.DataReceived += Events_DataReceived;
             sever.Start();
             txtInfo.Text += $"Starting...{Environment.NewLine}";
-            btnStart.Enabled = false;
+            btnStart.Visible = false;
+            btnStop.Visible = true;
             //txtIP.Text.Trim();
             //sever = new SimpleTcpServer(txtIP.Text);
             //sever.Events.ClientConnected += Events_ClientConnected; ;
@@ -333,7 +335,21 @@ namespace TCPSever
 
         private void Exit_btn_Click(object sender, EventArgs e)
         {
+            //if (sever.IsListening)
+            //{
+            //    sever.Stop();
+            //}
             this.Close();
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            sever.Dispose();
+            this.Hide();
+            Server se = new Server();
+            se.Closed += (s, args) => this.Close();
+            se.Show();
+            //this.Close();
         }
     }
 }

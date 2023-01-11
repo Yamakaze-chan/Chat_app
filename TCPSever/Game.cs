@@ -93,7 +93,7 @@ namespace TCPClient
             catch
             {
                 session.Stop();
-                MessageBox.Show("Game offer");
+                MessageBox.Show("Game over");
                 ResetGame();
             }
         }
@@ -107,7 +107,7 @@ namespace TCPClient
                 {
                     //row.Cells[col.Index].Style.BackColor = Color.Green; //doesn't work
                     //col.Cells[row.Index].Style.BackColor = Color.Green; //doesn't work
-                    grid.Rows[row.Index].Cells[col.Index].Style.BackColor = Color.White; //doesn't work
+                    grid.Rows[row.Index].Cells[col.Index].Style.BackColor = Color.FromArgb(19, 9, 46); //doesn't work
                 }
             }
             grid.Refresh();
@@ -126,7 +126,7 @@ namespace TCPClient
         {
             bool over = grid.Rows[newPoint.X].Cells[newPoint.Y].Style.BackColor == title.BackColor;
             foreach (var point in points)
-                grid.Rows[point.X].Cells[point.Y].Style.BackColor = grid.Rows[point.X].Cells[point.Y].Style.SelectionBackColor = this.BackColor;
+                grid.Rows[point.X].Cells[point.Y].Style.BackColor = grid.Rows[point.X].Cells[point.Y].Style.SelectionBackColor = Color.FromArgb(19, 9, 46);
 
             if (grid.Rows[newPoint.X].Cells[newPoint.Y].Style.BackColor == Color.Red)
             {
@@ -163,6 +163,7 @@ namespace TCPClient
 
         private void button1_Click(object sender, EventArgs e)
         {
+            session.Stop();
             this.Close();
         }
     }

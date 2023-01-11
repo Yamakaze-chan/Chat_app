@@ -123,7 +123,20 @@ namespace TCPClient
                         if (!ex)
                         {
                             History_sever.Add(txtIP);
+                            if(IP_lstbox.Items.Count==0)
+                            {
+                                IP_lstbox.Visible = true;
+                                label2.Visible = true;
+                            }
+                            else
+                            {
+                                if (IP_lstbox.Height < 414)
+                                {
+                                    IP_lstbox.Height += 23;
+                                }
+                            }
                             IP_lstbox.Items.Add(txtIP);
+                            
                         }
                     }
                     client.Disconnect();
@@ -156,8 +169,54 @@ namespace TCPClient
 
             {
 
-                MessageBox.Show("Disconnect");
+                //MessageBox.Show("Disconnect");
+                btnConnect_Click(null, null);
 
+                btnConnect1.Text = "Connect";
+                //string mess = "Do you want to save IP of chat for return later?";
+                //string t = "Save IP";
+                //MessageBoxButtons btn = MessageBoxButtons.YesNo;
+                //DialogResult r = MessageBox.Show(mess, t, btn, MessageBoxIcon.Question);
+                //if (r == DialogResult.Yes)
+                //{
+                //    bool ex = false;
+                //    foreach (var item in IP_lstbox.Items)
+                //    {
+                //        if (IP_lstbox.GetItemText(item) == txtIP)
+                //        {
+                //            ex = true;
+
+                //        }
+                //    }
+                //    if (!ex)
+                //    {
+                //        History_sever.Add(txtIP);
+                //        if (IP_lstbox.Items.Count == 0)
+                //        {
+                //            IP_lstbox.Visible = true;
+                //            label2.Visible = true;
+                //        }
+                //        else
+                //        {
+                //            if (IP_lstbox.Height < 414)
+                //            {
+                //                IP_lstbox.Height += 23;
+                //            }
+                //        }
+                //        IP_lstbox.Items.Add(txtIP);
+
+                //    }
+                //}
+                //client.Disconnect();
+                //Send_btn.Enabled = !true;
+
+                //history_panel.Visible = false;
+                //this.History_lstbox.Items.Clear();
+                //this.flowLayoutPanel1.Controls.Clear();
+                //this.yourIPlabel.Text = "";
+                //memories_flowlayoutpanel.Controls.Clear();
+                //label5.Text = "Server is disconnected";
+                //label7.Text = "Idle";
                 Reset_history();
 
             }
@@ -232,102 +291,155 @@ namespace TCPClient
         {
             this.Invoke((MethodInvoker)delegate
             {
-                Thread.Sleep(10);
-                memoryStream.Capacity = memoryStream.Capacity + e.Data.Count;
-                memoryStream.Write(e.Data.Array, 0, e.Data.Count);
                 try
                 {
-                    Image.FromStream(memoryStream);
-                    string path = DateTime.UtcNow.ToString("yyyyMMddTHHmmssfff") + ".gif";
-                    FileStream fs = new FileStream(path, FileMode.Create);
-                    fs.Write(memoryStream.GetBuffer(), 0, (int)memoryStream.Length);
-                    fs.Close();
-                    Console.WriteLine("Client:" + receivedataimg);
-                    Console.WriteLine("Client:" + memoryStream.Capacity);
-                    Console.WriteLine("Client:" + (memoryStream.Capacity - receivedataimg));
-
-                    if (receivedataimg == memoryStream.Capacity)
+                    Thread.Sleep(10);
+                    memoryStream.Capacity = memoryStream.Capacity + e.Data.Count;
+                    memoryStream.Write(e.Data.Array, 0, e.Data.Count);
+                    try
                     {
-                        if (ismemories)
+                        Image.FromStream(memoryStream);
+                        string path = DateTime.UtcNow.ToString("yyyyMMddTHHmmssfff") + ".gif";
+                        FileStream fs = new FileStream(path, FileMode.Create);
+                        fs.Write(memoryStream.GetBuffer(), 0, (int)memoryStream.Length);
+                        fs.Close();
+                        Console.WriteLine("Client:" + receivedataimg);
+                        Console.WriteLine("Client:" + memoryStream.Capacity);
+                        Console.WriteLine("Client:" + (memoryStream.Capacity - receivedataimg));
+
+                        if (receivedataimg == memoryStream.Capacity)
                         {
-                            PictureBox p = insertmemoriespicture(path);
-                            this.memories_flowlayoutpanel.Controls.Add(p);
+                            if (ismemories)
+                            {
+                                PictureBox p = insertmemoriespicture(path);
+                                this.memories_flowlayoutpanel.Controls.Add(p);
+                            }
+                            else
+                            {
+                                PictureBox p = insertpicture(path);
+                                this.flowLayoutPanel1.Controls.Add(p);
+                            }
+                            this.memoryStream.Close();
+                            this.memoryStream.Dispose();
+                            this.memoryStream = new MemoryStream(0);
+                            ismemories = false;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        string receive = Encoding.UTF8.GetString(memoryStream.ToArray());
+                        Console.WriteLine(receive);
+                        //check if file is a picture
+                        if (receive.Contains("iushcxlchiasdchjaslfcdajhiodcadshjca"))
+                        {
+                            receivedataimg = int.Parse(Regex.Match(receive, @"\d+").Value) + memoryStream.Capacity;
+                            Console.WriteLine(receivedataimg);
+                            memoryStream.SetLength(0);
+                        }
+                        else if (receive.Contains("therearefilesofsevermemories"))
+                        {
+                            receivedataimg = int.Parse(Regex.Match(receive, @"\d+").Value) + memoryStream.Capacity;
+                            ismemories = true;
+                            Console.WriteLine(receivedataimg);
+                            memoryStream.SetLength(0);
+                        }
+                        else if (receive.Contains("thisisahistoryoftheseveryouareonlineandyouripis"))
+                        {
+                            Console.WriteLine(receive);
+                            receive = receive.Replace("thisisahistoryoftheseveryouareonlineandyouripis", "");
+                            int indip = receive.IndexOf("/+/+/+");
+                            yourip = receive.Substring(0, indip);
+                            YourIPis(receive.Substring(0, indip));
+                            receive = receive.Remove(0, indip);
+                            Console.WriteLine("ip: " + receive);
+                            receive = receive.Replace("/+/+/+", "\n");
+                            string[] receive_history = receive.Split('\n');
+                            foreach (string str in receive_history)
+                            {
+                                if (str == "\n" || str == string.Empty)
+                                { continue; };
+                                History.Add(str);
+                            }
+                            Console.WriteLine(receive);
+                            memoryStream.SetLength(0);
                         }
                         else
                         {
-                            PictureBox p = insertpicture(path);
-                            this.flowLayoutPanel1.Controls.Add(p);
+                            //get string from sender
+                            string str = Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count);
+                            Console.WriteLine(str);
+                            //Add string to flowlayoutpanel
+                            int index1 = str.IndexOf("//////");
+                            string name = str.Substring(0, index1);
+                            int index_font = str.IndexOf("++++++");
+                            string font = str.Substring(index1 + 6, index_font - index1 - 6);
+
+                            string txt = str.Substring(index_font + 6, str.Length - index_font - 6);
+                            History.Add($"{name} : {txt}");
+                            History_lstbox.Items.Add($"{name} : {txt}");
+                            var cvt = new FontConverter();
+                            Font f = cvt.ConvertFromString(font) as Font;
+                            this.flowLayoutPanel1.HorizontalScroll.Maximum = 0;
+                            this.flowLayoutPanel1.VerticalScroll.Maximum = 0;
+                            this.flowLayoutPanel1.AutoScroll = false;
+                            this.flowLayoutPanel1.VerticalScroll.Visible = false;
+                            this.flowLayoutPanel1.HorizontalScroll.Visible = false;
+                            this.flowLayoutPanel1.AutoScroll = true;
+                            this.flowLayoutPanel1.Controls.Add(Create_rtb(txt, f, name));
+                            this.flowLayoutPanel1.AutoScrollPosition = new Point(0, flowLayoutPanel1.VerticalScroll.Maximum);
                         }
-                        this.memoryStream.Close();
-                        this.memoryStream.Dispose();
-                        this.memoryStream = new MemoryStream(0);
-                        ismemories = false;
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
-
-                    string receive = Encoding.UTF8.GetString(memoryStream.ToArray());
-                    Console.WriteLine(receive);
-                    //check if file is a picture
-                    if (receive.Contains("iushcxlchiasdchjaslfcdajhiodcadshjca"))
+                    MessageBox.Show("Server has corrupted");
+                    //btnConnect_Click(null, null);
+                    btnConnect1.Text = "Connect";
+                    string mess = "Do you want to save IP of chat for return later?";
+                    string t = "Save IP";
+                    MessageBoxButtons btn = MessageBoxButtons.YesNo;
+                    DialogResult r = MessageBox.Show(mess, t, btn, MessageBoxIcon.Question);
+                    if (r == DialogResult.Yes)
                     {
-                        receivedataimg = int.Parse(Regex.Match(receive, @"\d+").Value) + memoryStream.Capacity;
-                        Console.WriteLine(receivedataimg);
-                        memoryStream.SetLength(0);
-                    }
-                    else if (receive.Contains("therearefilesofsevermemories"))
-                    {
-                        receivedataimg = int.Parse(Regex.Match(receive, @"\d+").Value) + memoryStream.Capacity;
-                        ismemories = true;
-                        Console.WriteLine(receivedataimg);
-                        memoryStream.SetLength(0);
-                    }
-                    else if (receive.Contains("thisisahistoryoftheseveryouareonlineandyouripis"))
-                    {
-                        Console.WriteLine(receive);
-                        receive = receive.Replace("thisisahistoryoftheseveryouareonlineandyouripis", "");
-                        int indip = receive.IndexOf("/+/+/+");
-                        yourip = receive.Substring(0, indip);
-                        YourIPis(receive.Substring(0, indip));
-                        receive = receive.Remove(0, indip);
-                        Console.WriteLine("ip: " + receive);
-                        receive = receive.Replace("/+/+/+", "\n");
-                        string[] receive_history = receive.Split('\n');
-                        foreach (string str in receive_history)
+                        bool ex = false;
+                        foreach (var item in IP_lstbox.Items)
                         {
-                            if(str == "\n" || str == string.Empty)
-                            { continue; };
-                            History.Add(str);
-                        }
-                        Console.WriteLine(receive);
-                        memoryStream.SetLength(0);
-                    }
-                    else
-                    {
-                        //get string from sender
-                        string str = Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count);
-                        Console.WriteLine(str);
-                        //Add string to flowlayoutpanel
-                        int index1 = str.IndexOf("//////");
-                        string name = str.Substring(0, index1);
-                        int index_font = str.IndexOf("++++++");
-                        string font = str.Substring(index1 + 6, index_font - index1 - 6);
+                            if (IP_lstbox.GetItemText(item) == txtIP)
+                            {
+                                ex = true;
 
-                        string txt = str.Substring(index_font + 6, str.Length - index_font - 6);
-                        History.Add($"{name} : {txt}");
-                        History_lstbox.Items.Add($"{name} : {txt}");
-                        var cvt = new FontConverter();
-                        Font f = cvt.ConvertFromString(font) as Font;
-                        this.flowLayoutPanel1.HorizontalScroll.Maximum = 0;
-                        this.flowLayoutPanel1.VerticalScroll.Maximum = 0;
-                        this.flowLayoutPanel1.AutoScroll = false;
-                        this.flowLayoutPanel1.VerticalScroll.Visible = false;
-                        this.flowLayoutPanel1.HorizontalScroll.Visible = false;
-                        this.flowLayoutPanel1.AutoScroll = true;
-                        this.flowLayoutPanel1.Controls.Add(Create_rtb(txt, f, name));
-                        this.flowLayoutPanel1.AutoScrollPosition = new Point(0, flowLayoutPanel1.VerticalScroll.Maximum);
+                            }
+                        }
+                        if (!ex)
+                        {
+                            History_sever.Add(txtIP);
+                            if (IP_lstbox.Items.Count == 0)
+                            {
+                                IP_lstbox.Visible = true;
+                                label2.Visible = true;
+                            }
+                            else
+                            {
+                                if (IP_lstbox.Height < 414)
+                                {
+                                    IP_lstbox.Height += 23;
+                                }
+                            }
+                            IP_lstbox.Items.Add(txtIP);
+
+                        }
                     }
+                    client.Disconnect();
+                    Send_btn.Enabled = !true;
+
+                    history_panel.Visible = false;
+                    this.History_lstbox.Items.Clear();
+                    this.flowLayoutPanel1.Controls.Clear();
+                    this.yourIPlabel.Text = "";
+                    memories_flowlayoutpanel.Controls.Clear();
+                    label5.Text = "Server is disconnected";
+                    label7.Text = "Idle";
                 }
             });
         }
@@ -746,15 +858,21 @@ namespace TCPClient
                     btnConnect_Click(sender, e);
                 }
             }
-            txtIP = IP_lstbox.SelectedItem.ToString();
-            IP1.Text = txtIP.Substring(0, txtIP.IndexOf(":"));
-            Port1.Text = txtIP.Substring(txtIP.IndexOf(":")+1,txtIP.Length-IP1.Text.Length-1);
-            btnConnect_Click(sender, e);
+            if (IP_lstbox.SelectedItem != null)
+            {
+                txtIP = IP_lstbox.SelectedItem.ToString();
+                IP1.Text = txtIP.Substring(0, txtIP.IndexOf(":"));
+                Port1.Text = txtIP.Substring(txtIP.IndexOf(":") + 1, txtIP.Length - IP1.Text.Length - 1);
+                btnConnect_Click(sender, e);
+            }
         }
 
         private void IP_lstbox_Click(object sender, EventArgs e)
         {
-            txtIP = IP_lstbox.SelectedItem.ToString();
+            if (IP_lstbox.SelectedItem != null)
+            {
+                txtIP = IP_lstbox.SelectedItem.ToString();
+            }
         }
 
         private void Exit_btn_Click(object sender, EventArgs e)
@@ -768,6 +886,7 @@ namespace TCPClient
             {
                 if(client.IsConnected)
                 {
+                    History_lstbox.Items.Clear();
                     if(memories_flowlayoutpanel.Visible)
                     {
                         memories_flowlayoutpanel.Visible = false;
@@ -789,8 +908,8 @@ namespace TCPClient
                 {
                     if (search_history.Visible)
                     {
-                        search_history.Visible = false;
-                        this.History_lstbox.Items.Clear();
+                        history_panel.Visible=false;
+                        //this.History_lstbox.Items.Clear();
                     }
                     memories_flowlayoutpanel.Visible = true;
                 }
