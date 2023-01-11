@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -34,6 +35,7 @@ namespace TCPClient
         Hashtable emotions;
         List<char> going_to_send;
         List<string> History;
+        List<string> History_sever;
         string yourip;
         [DllImport("user32.dll")]
         
@@ -41,65 +43,68 @@ namespace TCPClient
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            if (client.IsConnected)
+            if (client != null)
             {
-                if (!string.IsNullOrEmpty(txtMessage.Text))
+                if (client.IsConnected)
                 {
-                    //send message
-                    var cvt = new FontConverter();
-                    string s = cvt.ConvertToString(this.txtMessage.Font);
-                    string sendmsg = s + "++++++" + new string(going_to_send.ToArray());
-                    client.Send(sendmsg);
-                    
-                    //add sent message to our flowlayoutpanel
-                    //System.Windows.Forms.RichTextBox rtb = new System.Windows.Forms.RichTextBox();
-                    //rtb.Text = "You: " + new string(going_to_send.ToArray());
-                    //rtb.Width = 350;
-                    ////int c = rtb.Text.Length;
-                    ////c = (c / 55)+1;
-                    ////rtb.MaxLength = 10;
-                    ////rtb.MaximumSize = new Size(550, 0);
-                    ////rtb.AutoSize = true;
-                    //rtb.Font = this.txtMessage.Font;
-                    ////float height = this.txtMessage.Font.GetHeight();
-                    ////int high = (int)Math.Round(height)+5;
-                    ////rtb.Height = high;
-                    //using (Graphics g = CreateGraphics())
-                    //{
-                    //    rtb.Height = (int)g.MeasureString(rtb.Text,
-                    //        rtb.Font, rtb.Width).Height*2;
-                    //}
-                    //rtb.BorderStyle = BorderStyle.None;
-                    //rtb.ReadOnly = true;
-                    //rtb.TabStop = false;
-                    
-                    //rtb.Click += (z,ee) => HideCaret(rtb.Handle);
-                    //float height = rtb.Font.GetHeight();
-                    //int high = (int)Math.Round(height);
-                    //rtb = AddEmotions(high, rtb);
-                    //System.Windows.Forms.Panel pn = new Panel();
-                    //pn.BorderStyle = BorderStyle.FixedSingle;
-                    //pn.Size = new Size(550, lb.Size.Height);
-                    //pn.Controls.Add(lb);
-                    this.flowLayoutPanel1.HorizontalScroll.Maximum = 0;
-                    this.flowLayoutPanel1.VerticalScroll.Maximum = 0;
-                    this.flowLayoutPanel1.AutoScroll = false;
-                    this.flowLayoutPanel1.VerticalScroll.Visible = false;
-                    this.flowLayoutPanel1.HorizontalScroll.Visible = false;
-                    this.flowLayoutPanel1.AutoScroll = true;
-                    this.flowLayoutPanel1.Controls.Add(Create_rtb(new string(going_to_send.ToArray()), this.txtMessage.Font, "You"));
-                    this.flowLayoutPanel1.AutoScrollPosition = new Point(0, flowLayoutPanel1.VerticalScroll.Maximum);
-                    History.Add(yourip + " : "+txtMessage.Text);
-                    this.History_lstbox.Items.Add(yourip + " : " + txtMessage.Text); 
-                    txtMessage.Text = "";
-                    Console.WriteLine("u");
-                    
-                    going_to_send.Clear();
-                }
-                else
-                {
-                    //string must not null
-                    MessageBox.Show("string must not null");
+                    if (!string.IsNullOrEmpty(txtMessage.Text))
+                    {
+                        //send message
+                        var cvt = new FontConverter();
+                        string s = cvt.ConvertToString(this.txtMessage.Font);
+                        string sendmsg = s + "++++++" + new string(going_to_send.ToArray());
+                        client.Send(sendmsg);
+
+                        //add sent message to our flowlayoutpanel
+                        //System.Windows.Forms.RichTextBox rtb = new System.Windows.Forms.RichTextBox();
+                        //rtb.Text = "You: " + new string(going_to_send.ToArray());
+                        //rtb.Width = 350;
+                        ////int c = rtb.Text.Length;
+                        ////c = (c / 55)+1;
+                        ////rtb.MaxLength = 10;
+                        ////rtb.MaximumSize = new Size(550, 0);
+                        ////rtb.AutoSize = true;
+                        //rtb.Font = this.txtMessage.Font;
+                        ////float height = this.txtMessage.Font.GetHeight();
+                        ////int high = (int)Math.Round(height)+5;
+                        ////rtb.Height = high;
+                        //using (Graphics g = CreateGraphics())
+                        //{
+                        //    rtb.Height = (int)g.MeasureString(rtb.Text,
+                        //        rtb.Font, rtb.Width).Height*2;
+                        //}
+                        //rtb.BorderStyle = BorderStyle.None;
+                        //rtb.ReadOnly = true;
+                        //rtb.TabStop = false;
+
+                        //rtb.Click += (z,ee) => HideCaret(rtb.Handle);
+                        //float height = rtb.Font.GetHeight();
+                        //int high = (int)Math.Round(height);
+                        //rtb = AddEmotions(high, rtb);
+                        //System.Windows.Forms.Panel pn = new Panel();
+                        //pn.BorderStyle = BorderStyle.FixedSingle;
+                        //pn.Size = new Size(550, lb.Size.Height);
+                        //pn.Controls.Add(lb);
+                        this.flowLayoutPanel1.HorizontalScroll.Maximum = 0;
+                        this.flowLayoutPanel1.VerticalScroll.Maximum = 0;
+                        this.flowLayoutPanel1.AutoScroll = false;
+                        this.flowLayoutPanel1.VerticalScroll.Visible = false;
+                        this.flowLayoutPanel1.HorizontalScroll.Visible = false;
+                        this.flowLayoutPanel1.AutoScroll = true;
+                        this.flowLayoutPanel1.Controls.Add(Create_rtb(new string(going_to_send.ToArray()), this.txtMessage.Font, "You"));
+                        this.flowLayoutPanel1.AutoScrollPosition = new Point(0, flowLayoutPanel1.VerticalScroll.Maximum);
+                        History.Add(yourip + " : " + txtMessage.Text);
+                        this.History_lstbox.Items.Add(yourip + " : " + txtMessage.Text);
+                        txtMessage.Text = "";
+                        Console.WriteLine("u");
+
+                        going_to_send.Clear();
+                    }
+                    else
+                    {
+                        //string must not null
+                        MessageBox.Show("string must not null");
+                    }
                 }
             }
         }
@@ -109,9 +114,14 @@ namespace TCPClient
             try
             {
                 //try connect to our sever
+                client = new SimpleTcpClient(txtIP.Text);
+                client.Events.Connected += Events_Connected;
+                client.Events.DataReceived += Events_DataReceived;
+                client.Events.Disconnected += Events_Disconnected;
                 client.Connect();
                 btnSend.Enabled = true;
                 btnConnect.Enabled = false;
+                button2.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -121,13 +131,11 @@ namespace TCPClient
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            client = new SimpleTcpClient(txtIP.Text);
-            client.Events.Connected += Events_Connected;
-            client.Events.DataReceived += Events_DataReceived;
-            client.Events.Disconnected += Events_Disconnected;
+            
             btnSend.Enabled = true;
             going_to_send = new List<char>();
             History = new List<string>();
+            History_sever = new List<string>();
             CreateEmotions();
             Add_pic_emotion();
         }
@@ -150,6 +158,7 @@ namespace TCPClient
                 //this.flowLayoutPanel1.Controls.Add(lb);
                 //this.flowLayoutPanel1.AutoScrollPosition = new Point(0, flowLayoutPanel1.VerticalScroll.Maximum);
                 MessageBox.Show("Disconnect");
+                
                 Reset_history();
                 //btnSend.Enabled = !true;
                 //btnConnect.Enabled = !false;
@@ -185,6 +194,20 @@ namespace TCPClient
             return picture;
         }
 
+        private PictureBox insertmemoriespicture(string s)
+        {
+            System.Windows.Forms.PictureBox picture = new System.Windows.Forms.PictureBox()
+            {
+                Name = "pictureBox",
+                Size = new Size(100, 100),
+                SizeMode = PictureBoxSizeMode.Zoom,
+                //Location = new Point(100, 100),
+
+            };
+            picture.Image = Image.FromFile(s);
+            return picture;
+        }
+
         private void save_docx(MemoryStream ms)
         {
             using (FileStream file = new FileStream("file.docx", FileMode.Create, System.IO.FileAccess.Write))
@@ -207,6 +230,7 @@ namespace TCPClient
 
         MemoryStream memoryStream = new MemoryStream(0);
         int receivedataimg;
+        bool ismemories = false;
         private void Events_DataReceived(object sender, SuperSimpleTcp.DataReceivedEventArgs e)
         {
             this.Invoke((MethodInvoker)delegate
@@ -218,7 +242,8 @@ namespace TCPClient
                 {
                     //MessageBox.Show(memoryStream.Capacity.ToString());
                     Image.FromStream(memoryStream);
-                    string path = DateTime.Now.ToString("yyyyMMddTHHmmss")+".gif";
+                    //string path = DateTime.Now.ToString("yyyyMMddTHHmmss")+".gif";
+                    string path = DateTime.UtcNow.ToString("yyyyMMddTHHmmssfff") + ".gif";
                     FileStream fs = new FileStream(path, FileMode.Create);
                     fs.Write(memoryStream.GetBuffer(), 0, (int)memoryStream.Length);
                     //memoryStream.SetLength(0);
@@ -229,21 +254,37 @@ namespace TCPClient
 
                     if (receivedataimg == memoryStream.Capacity)
                     {
-                        //string path = "outfile.gif";
-                        //FileStream fs = new FileStream(path, FileMode.Create);
-                        //fs.Write(memoryStream.GetBuffer(), 0, (int)memoryStream.Length);
-                        ////memoryStream.SetLength(0);
-                        //fs.Close();
-                        PictureBox p = insertpicture(path);
-                        this.flowLayoutPanel1.Controls.Add(p);
-                        //File.Delete("outfile.gif");
+                        if (ismemories)
+                        {
+                            PictureBox p = insertmemoriespicture(path);
+                            this.memories_flowlayoutpanel.Controls.Add(p);
+                            //File.Delete("outfile.gif");
+                            //this.memoryStream.Close();
+                            //this.memoryStream.Dispose();
+                            //this.memoryStream = new MemoryStream(0);
+                        }
+                        else
+                        {
+                            //string path = "outfile.gif";
+                            //FileStream fs = new FileStream(path, FileMode.Create);
+                            //fs.Write(memoryStream.GetBuffer(), 0, (int)memoryStream.Length);
+                            ////memoryStream.SetLength(0);
+                            //fs.Close();
+                            PictureBox p = insertpicture(path);
+                            this.flowLayoutPanel1.Controls.Add(p);
+                            //File.Delete("outfile.gif");
+                            //this.memoryStream.Close();
+                            //this.memoryStream.Dispose();
+                            //this.memoryStream = new MemoryStream(0);
+                            //memoryStream.SetLength(0);
+                            //this.memoryStream = Clear(memoryStream);
+
+                            //save_docx(memoryStream);
+                        }
                         this.memoryStream.Close();
                         this.memoryStream.Dispose();
                         this.memoryStream = new MemoryStream(0);
-                        //memoryStream.SetLength(0);
-                        //this.memoryStream = Clear(memoryStream);
-
-                        //save_docx(memoryStream);
+                        ismemories = false;
                     }
                 }
                 catch (Exception ex)
@@ -266,14 +307,32 @@ namespace TCPClient
                         //memoryStream.Dispose();
                         //memoryStream = new MemoryStream(0);
                     }
+                    else if (receive.Contains("therearefilesofsevermemories"))
+                    {
+                        receivedataimg = int.Parse(Regex.Match(receive, @"\d+").Value) + memoryStream.Capacity;
+                        ismemories = true;
+                        Console.WriteLine(receivedataimg);
+                        memoryStream.SetLength(0);
+                        //memoryStream.C
+                        //memoryStream.SetLength(0);
+                        //this.memoryStream = Clear(this.memoryStream);
+                        //Thread.Sleep(30);
+                        //MessageBox.Show(this, "You've got new file");
+                        //memoryStream.Close();
+                        //memoryStream.Dispose();
+                        //memoryStream = new MemoryStream(0);
+                    }
                     else if (receive.Contains("thisisahistoryoftheseveryouareonlineandyouripis"))
                     {
                         Console.WriteLine(receive);
                         receive = receive.Replace("thisisahistoryoftheseveryouareonlineandyouripis", "");
                         int indip = receive.IndexOf("/+/+/+");
                         yourip = receive.Substring(0, indip);
-                        receive.Substring(0, indip);
-                        receive = receive.Replace("/+/+/+", "");
+                        YourIPis(receive.Substring(0, indip));
+                        //yourIPlabel.Text = "Your IP is : "+ receive.Substring(0, indip);
+                        receive = receive.Remove(0, indip);
+                        Console.WriteLine("ip: "+receive);
+                        receive = receive.Replace("/+/+/+", "\n");
                         string[] receive_history = receive.Split('\n');
                         foreach(string str in receive_history)
                         {
@@ -302,6 +361,8 @@ namespace TCPClient
                         string font = str.Substring(index1 + 6, index_font - index1 - 6);
 
                         string txt = str.Substring(index_font + 6, str.Length - index_font - 6);
+                        History.Add($"{name} : {txt}");
+                        History_lstbox.Items.Add($"{name} : {txt}");
                         //System.Windows.Forms.RichTextBox rtb = new System.Windows.Forms.RichTextBox();
                         //rtb.Text = $"{name}: " + txt;
                         //rtb.Width = 350;
@@ -378,7 +439,7 @@ namespace TCPClient
                 sSelectedFile = choofdlog.FileName;
             else
                 sSelectedFile = string.Empty;
-            if (sSelectedFile != string.Empty)
+            if (sSelectedFile != string.Empty && client != null)
             {
                 Sendfile(sSelectedFile);
             }
@@ -510,7 +571,8 @@ namespace TCPClient
             };
             picture.Image = (Bitmap)((new ImageConverter()).ConvertFrom(img_to_send)); ;
             this.flowLayoutPanel1.Controls.Add(picture);
-
+            
+            this.memories_flowlayoutpanel.Controls.Add(insertmemoriespicture(filePath));
             //fs.Close();
         }
 
@@ -645,16 +707,25 @@ namespace TCPClient
 
         private void Add_pic_emotion()
         {
-            foreach(string emo in this.emotions.Keys)
+            icon_panel.Controls.Clear();
+            this.icon_panel.HorizontalScroll.Maximum = 0;
+            this.icon_panel.VerticalScroll.Maximum = 0;
+            this.icon_panel.AutoScroll = false;
+            this.icon_panel.VerticalScroll.Visible = false;
+            this.icon_panel.HorizontalScroll.Visible = false;
+            this.icon_panel.AutoScroll = true;
+            DirectoryInfo d = new DirectoryInfo("Emotion_icon");
+
+            foreach (var file in d.GetFiles("*.png"))
             {
                 PictureBox p = new PictureBox
                 {
                     Size = new Size(50,50),
                     Margin = new Padding(4,4,4,4),
-                    Image = resizeImage(Image.FromFile((string)emotions[emo]), new Size(50, 50)),
+                    Image = resizeImage(Image.FromFile(d+"\\"+file.Name), new Size(50, 50)),
                 };
                 this.icon_panel.Controls.Add(p);
-                p.Click += (s, ee) => Add_emo_pic_manual((string)emotions[emo]);
+                p.Click += (s, ee) => Add_emo_pic_manual(d+"\\"+file.Name);
             }
         }
         private void Add_emo_pic_manual(string emo)
@@ -665,19 +736,16 @@ namespace TCPClient
             //int high = (int)Math.Round(height);
             //txtMessage.Text = new string(going_to_send.ToArray());
             //AddEmotions(high, this.txtMessage);
-            Sendfile(emo);
+            if (client != null && client.IsConnected)
+            {
+                Sendfile(emo);
+            }
         }
 
         private void icon_btn_Click(object sender, EventArgs e)
         {
-            if (icon_panel.Visible)
-            {
-                icon_panel.Visible = false;
-            }
-            else
-            {
                 icon_panel.Visible = true;
-            }
+                Add_pic_emotion();
         }
 
         private RichTextBox Create_rtb(string s, Font f, string send_pp)
@@ -716,7 +784,7 @@ namespace TCPClient
             {
 
                 Process firstProc = new Process();
-                firstProc.StartInfo.FileName = "D:\\VS2022\\Save_file\\Sever\\bin\\Debug\\Sever.exe";
+                firstProc.StartInfo.FileName = "Sever.exe - Shortcut";
                 firstProc.EnableRaisingEvents = true;
 
                 firstProc.Start();
@@ -733,38 +801,80 @@ namespace TCPClient
 
         private void button2_Click(object sender, EventArgs e)
         {
-            client.Disconnect();
-            btnSend.Enabled = !true;
-            btnConnect.Enabled = !false;
-            history_panel.Visible = false;
-            this.History_lstbox.Items.Clear();
+            string message = "Do you want to leave this chat?";
+            string title = "Leave chat";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                string mess = "Do you want to save IP of chat for return later?";
+                string t = "Save IP";
+                MessageBoxButtons btn = MessageBoxButtons.YesNo;
+                DialogResult r = MessageBox.Show(mess, t, btn, MessageBoxIcon.Question);
+                if (r == DialogResult.Yes)
+                {
+                    bool ex = false;
+                    foreach (var item in IP_lstbox.Items)
+                    {
+                        if (IP_lstbox.GetItemText(item) == txtIP.Text)
+                        {
+                            ex = true;
+                            
+                        }
+                    }
+                    if(!ex)
+                    {
+                        History_sever.Add(txtIP.Text);
+                        IP_lstbox.Items.Add(txtIP.Text);
+                    }
+                    button2.Enabled = false;
+                }
+                client.Disconnect();
+                btnSend.Enabled = !true;
+                btnConnect.Enabled = !false;
+                history_panel.Visible = false;
+                this.History_lstbox.Items.Clear();
+                this.flowLayoutPanel1.Controls.Clear();
+                this.yourIPlabel.Text = "";
+                memories_flowlayoutpanel.Controls.Clear();
+            }
+            else
+            {
+
+            }
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if(client.IsConnected)
+            if (client != null)
             {
-                history_panel.Visible = !history_panel.Visible;
-                if (history_panel.Visible)
+                if (client.IsConnected)
                 {
-                    foreach (var h in History)
+                    history_panel.Visible = !history_panel.Visible;
+                    if (history_panel.Visible)
                     {
-                        this.History_lstbox.Items.Add(h);
+                        foreach (var h in History)
+                        {
+                            this.History_lstbox.Items.Add(h);
+                        }
+                    }
+                    else
+                    {
+                        this.History_lstbox.Items.Clear();
                     }
                 }
                 else
                 {
-                    this.History_lstbox.Items.Clear();
+                    history_panel.Visible = false;
                 }
-            }
-            else
-            {
-                history_panel.Visible=false;
             }
         }
 
         private void Reset_history()
         {
+            //this.yourIPlabel.Text = "";
+            //this.flowLayoutPanel1.Controls.Clear();
             History.Clear();
         }
 
@@ -778,6 +888,78 @@ namespace TCPClient
                     History_lstbox.Items.Add(h);
                 }
             }
+        }
+
+        private void YourIPis(string s)
+        {
+            yourIPlabel.Text = "Your IP is : " + s;
+        }
+
+        private void IP_lstbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //public void loadform(object Form)
+        //{
+        //    if (Application.OpenForms["Form2"] != null)
+        //    {
+        //        Form f = Form as Form;
+        //        f.TopLevel = false;
+        //        //f.Dock = DockStyle.Fill;
+        //        f.Show();
+        //    }
+        //}
+
+        private void Minigame_btn_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.ShowDialog();
+        }
+
+        private void GIF_btn_Click(object sender, EventArgs e)
+        {
+            icon_panel.Visible = true;
+            icon_panel.Controls.Clear();
+            this.icon_panel.HorizontalScroll.Maximum = 0;
+            this.icon_panel.VerticalScroll.Maximum = 1;
+            this.icon_panel.AutoScroll = false;
+            this.icon_panel.VerticalScroll.Visible = false;
+            this.icon_panel.HorizontalScroll.Visible = false;
+            this.icon_panel.AutoScroll = true;
+            DirectoryInfo d = new DirectoryInfo("GIF_icon");
+
+            foreach (var file in d.GetFiles("*.gif"))
+            {
+                PictureBox p = new PictureBox
+                {
+                    Size = new Size(50, 50),
+                    Margin = new Padding(4, 4, 4, 4),
+                    SizeMode = PictureBoxSizeMode.Zoom,
+                    Image = resizeImage(Image.FromFile(d + "\\" + file.Name), new Size(50, 50)),
+                    
+                };
+                this.icon_panel.Controls.Add(p);
+                p.Click += (s, ee) => Add_emo_pic_manual(d + "\\" + file.Name);
+            }
+        }
+
+        private void IP_lstbox_DoubleClick(object sender, EventArgs e)
+        {
+            if (client != null)
+            {
+                if (client.IsConnected)
+                {
+                    button2_Click(sender, e);
+                }
+            }
+            txtIP.Text = IP_lstbox.SelectedItem.ToString();
+            btnConnect_Click(sender, e);
+        }
+
+        private void IP_lstbox_Click(object sender, EventArgs e)
+        {
+            txtIP.Text = IP_lstbox.SelectedItem.ToString();
         }
     }
 }
