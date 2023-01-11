@@ -43,14 +43,12 @@ namespace TCPSever
             sever.Start();
             txtInfo.Text += $"Starting...{Environment.NewLine}";
             btnStart.Enabled = false;
-            btnSend.Enabled = true;
-            txtIP.Text.Trim();
-            
-            sever = new SimpleTcpServer(txtIP.Text);
-            sever.Events.ClientConnected += Events_ClientConnected; ;
-            sever.Events.ClientDisconnected += Events_ClientDisconnected;
-            sever.Events.DataReceived += Events_DataReceived;
-            sever.Start();
+            //txtIP.Text.Trim();
+            //sever = new SimpleTcpServer(txtIP.Text);
+            //sever.Events.ClientConnected += Events_ClientConnected; ;
+            //sever.Events.ClientDisconnected += Events_ClientDisconnected;
+            //sever.Events.DataReceived += Events_DataReceived;
+            //sever.Start();
         }
 
         MemoryStream memoryStream = new MemoryStream(0);
@@ -58,7 +56,7 @@ namespace TCPSever
         private void Form1_Load(object sender, EventArgs e)
         {
             btnStart.Enabled = true;
-            btnSend.Enabled = false;
+            //btnSend.Enabled = false;
             history = new List<string>();
             memories = new List<string>();
 
@@ -75,7 +73,7 @@ namespace TCPSever
             //    Location = new Point(100, 100),
 
             //};
-            pictureBox1.Image = Image.FromStream(fs);
+            //pictureBox1.Image = Image.FromStream(fs);
             //return picture;
             //this.flowLayoutPanel1.Controls.Add(picture);
             //pictureBox1.Image = Image.FromStream(ms);
@@ -245,8 +243,8 @@ namespace TCPSever
                         }
                         string textmsg = pp_send + "//////" + temp_string;
                         sever.Send(ip, textmsg);
-                        txtInfo.Text += $"{pp_send} {ip} {txtMessage.Text}{Environment.NewLine}";
-                        txtMessage.Text = "";
+                        //txtInfo.Text += $"{pp_send} {ip} {txtMessage.Text}{Environment.NewLine}";
+                        //txtMessage.Text = "";
                     }
                 }
             }
@@ -331,6 +329,11 @@ namespace TCPSever
                 return false;
             }
             return true;
+        }
+
+        private void Exit_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
