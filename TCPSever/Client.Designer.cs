@@ -287,11 +287,11 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(240)))), ((int)(((byte)(248)))));
-            this.label7.Location = new System.Drawing.Point(122, 233);
+            this.label7.Location = new System.Drawing.Point(107, 233);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 25);
+            this.label7.Size = new System.Drawing.Size(85, 25);
             this.label7.TabIndex = 2;
-            this.label7.Text = "Active";
+            this.label7.Text = "No activity";
             // 
             // guna2Panel3
             // 
@@ -661,8 +661,6 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            //this.flowLayoutPanel1.Controls.Add(this.guna2GradientPanel7);
-            //this.flowLayoutPanel1.Controls.Add(this.guna2GradientPanel4);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(334, 65);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
