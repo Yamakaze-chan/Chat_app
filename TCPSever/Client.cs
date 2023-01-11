@@ -792,5 +792,23 @@ namespace TCPClient
                 }
             }
         }
+
+        private void Avatar_btn_Click(object sender, EventArgs e)
+        {
+            string _selectedFile;
+            OpenFileDialog avt = new OpenFileDialog();
+            avt.Title = "Select new avatar";
+            avt.Filter = "Image Files (*.ICO;*.JPG;*.PNG;)|(*.ICO;*.JPG;*.PNG;)";
+            if (avt.ShowDialog() == DialogResult.OK)
+            {
+                _selectedFile = avt.FileName;
+                Avatar_btn.Image = Image.FromFile(_selectedFile);
+                Avatar_Ip.Image = Image.FromFile(_selectedFile);
+                Avatar.Image = Image.FromFile(_selectedFile);
+            }
+            else
+                _selectedFile = string.Empty;
+
+        }
     }
 }
