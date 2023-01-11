@@ -72,6 +72,8 @@ namespace TCPClient
             }
         }
 
+        private bool click = true;
+
         private void btnConnect_Click(object sender, EventArgs e)
         {
             if (btnConnect1.Text == "Connect")
@@ -139,6 +141,7 @@ namespace TCPClient
                             
                         }
                     }
+                    click = false;
                     client.Disconnect();
                     Send_btn.Enabled = !true;
 
@@ -149,6 +152,7 @@ namespace TCPClient
                     memories_flowlayoutpanel.Controls.Clear();
                     label5.Text = "Server is disconnected";
                     label7.Text = "Idle";
+                    
                 }
             }
         }
@@ -163,60 +167,81 @@ namespace TCPClient
             CreateEmotions();
             Add_pic_emotion();
         }
+        delegate void SetTextCallback(string text);
+
+        private void setText(string text)
+        {
+            if (this.btnConnect1.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(setText);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                this.btnConnect1.Text = text;
+                
+                string mess = "Do you want to save IP of chat for return later?";
+                string t = "Save IP";
+                MessageBoxButtons btn = MessageBoxButtons.YesNo;
+                //DialogResult r = MessageBox.Show(mess, t, btn, MessageBoxIcon.Question);
+                DialogResult r = MessageBox.Show(mess, t, btn, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                if (r == DialogResult.Yes)
+                {
+                    bool ex = false;
+                    foreach (var item in IP_lstbox.Items)
+                    {
+                        if (IP_lstbox.GetItemText(item) == txtIP)
+                        {
+                            ex = true;
+
+                        }
+                    }
+                    if (!ex)
+                    {
+                        History_sever.Add(txtIP);
+                        if (IP_lstbox.Items.Count == 0)
+                        {
+                            IP_lstbox.Visible = true;
+                            label2.Visible = true;
+                        }
+                        else
+                        {
+                            if (IP_lstbox.Height < 414)
+                            {
+                                IP_lstbox.Height += 23;
+                            }
+                        }
+                        IP_lstbox.Items.Add(txtIP);
+
+                    }
+                }
+                //client.Disconnect();
+                Send_btn.Enabled = !true;
+
+                history_panel.Visible = false;
+                this.History_lstbox.Items.Clear();
+                this.flowLayoutPanel1.Controls.Clear();
+                this.yourIPlabel.Text = "";
+                memories_flowlayoutpanel.Controls.Clear();
+                label5.Text = "Server is disconnected";
+                label7.Text = "Idle";
+            }
+            //btnConnect1.Text = "Connect";
+        }
+
 
         private void Events_Disconnected(object sender, ConnectionEventArgs e)
         {
 
             {
 
-                //MessageBox.Show("Disconnect");
-                btnConnect_Click(null, null);
-
-                btnConnect1.Text = "Connect";
-                //string mess = "Do you want to save IP of chat for return later?";
-                //string t = "Save IP";
-                //MessageBoxButtons btn = MessageBoxButtons.YesNo;
-                //DialogResult r = MessageBox.Show(mess, t, btn, MessageBoxIcon.Question);
-                //if (r == DialogResult.Yes)
-                //{
-                //    bool ex = false;
-                //    foreach (var item in IP_lstbox.Items)
-                //    {
-                //        if (IP_lstbox.GetItemText(item) == txtIP)
-                //        {
-                //            ex = true;
-
-                //        }
-                //    }
-                //    if (!ex)
-                //    {
-                //        History_sever.Add(txtIP);
-                //        if (IP_lstbox.Items.Count == 0)
-                //        {
-                //            IP_lstbox.Visible = true;
-                //            label2.Visible = true;
-                //        }
-                //        else
-                //        {
-                //            if (IP_lstbox.Height < 414)
-                //            {
-                //                IP_lstbox.Height += 23;
-                //            }
-                //        }
-                //        IP_lstbox.Items.Add(txtIP);
-
-                //    }
-                //}
-                //client.Disconnect();
-                //Send_btn.Enabled = !true;
-
-                //history_panel.Visible = false;
-                //this.History_lstbox.Items.Clear();
-                //this.flowLayoutPanel1.Controls.Clear();
-                //this.yourIPlabel.Text = "";
-                //memories_flowlayoutpanel.Controls.Clear();
-                //label5.Text = "Server is disconnected";
-                //label7.Text = "Idle";
+                MessageBox.Show("Disconnect","Disconnect from server",MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                if(click == true)
+                {
+                    click = true;
+                    setText("Connect");
+                }
+                
                 Reset_history();
 
             }
@@ -318,6 +343,8 @@ namespace TCPClient
                             {
                                 PictureBox p = insertpicture(path);
                                 this.flowLayoutPanel1.Controls.Add(p);
+                                PictureBox pi = insertmemoriespicture(path);
+                                this.memories_flowlayoutpanel.Controls.Add(pi);
                             }
                             this.memoryStream.Close();
                             this.memoryStream.Dispose();

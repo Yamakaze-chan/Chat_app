@@ -344,12 +344,27 @@ namespace TCPSever
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            sever.Dispose();
-            this.Hide();
-            Server se = new Server();
-            se.Closed += (s, args) => this.Close();
-            se.Show();
+
+            //sever.Dispose();
+            //this.Hide();
+            //Server se = new Server();
+            //se.Closed += (s, args) => this.Close();
+            //se.Show();
+            //this.WindowState = FormWindowState.Minimized;
             //this.Close();
+
+            btnStart.Visible = true;
+            btnStop.Visible = false;
+            foreach (var item in listClientIP.Items)
+            {
+                string ip = listClientIP.GetItemText(item);
+                sever.DisconnectClient(ip);
+            }
+            history.Clear();
+            memories.Clear();
+            sever.Stop();
+            sever.Dispose();
+            
         }
     }
 }
