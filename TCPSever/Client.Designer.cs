@@ -49,6 +49,7 @@
             this.Avatar_Ip = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.yourIPlabel = new System.Windows.Forms.Label();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.IP_lstbox = new System.Windows.Forms.ListBox();
             this.guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
@@ -68,7 +69,6 @@
             this.Send_btn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.icon_panel = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Avatar_btn)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -163,6 +163,7 @@
             // Avatar_btn
             // 
             this.Avatar_btn.BackColor = System.Drawing.Color.Transparent;
+            this.Avatar_btn.Image = global::TCPSever.Properties.Resources.cloud;
             this.Avatar_btn.ImageRotate = 0F;
             this.Avatar_btn.Location = new System.Drawing.Point(18, 14);
             this.Avatar_btn.Name = "Avatar_btn";
@@ -226,6 +227,7 @@
             // 
             // memories_flowlayoutpanel
             // 
+            this.memories_flowlayoutpanel.AutoScroll = true;
             this.memories_flowlayoutpanel.Location = new System.Drawing.Point(9, 300);
             this.memories_flowlayoutpanel.Name = "memories_flowlayoutpanel";
             this.memories_flowlayoutpanel.Size = new System.Drawing.Size(277, 461);
@@ -337,11 +339,11 @@
             // 
             this.yourIPlabel.AutoSize = true;
             this.yourIPlabel.BackColor = System.Drawing.Color.Transparent;
-            this.yourIPlabel.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yourIPlabel.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yourIPlabel.ForeColor = System.Drawing.Color.White;
             this.yourIPlabel.Location = new System.Drawing.Point(323, 24);
             this.yourIPlabel.Name = "yourIPlabel";
-            this.yourIPlabel.Size = new System.Drawing.Size(17, 17);
+            this.yourIPlabel.Size = new System.Drawing.Size(27, 25);
             this.yourIPlabel.TabIndex = 0;
             this.yourIPlabel.Text = "IP";
             // 
@@ -356,6 +358,17 @@
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Size = new System.Drawing.Size(261, 710);
             this.guna2Panel4.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(17, 287);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(221, 25);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "List of saved server:";
+            this.label2.Visible = false;
             // 
             // IP_lstbox
             // 
@@ -691,17 +704,6 @@
             this.flowLayoutPanel1.TabIndex = 26;
             this.flowLayoutPanel1.WrapContents = false;
             // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(17, 287);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(221, 25);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "List of saved server:";
-            this.label2.Visible = false;
-            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 20F);
@@ -716,7 +718,7 @@
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Client";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

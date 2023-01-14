@@ -13,6 +13,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
+using TCPSever;
 
 namespace TCPClient
 {
@@ -54,7 +55,9 @@ namespace TCPClient
                         this.flowLayoutPanel1.VerticalScroll.Visible = false;
                         this.flowLayoutPanel1.HorizontalScroll.Visible = false;
                         this.flowLayoutPanel1.AutoScroll = true;
-                        this.flowLayoutPanel1.Controls.Add(Create_rtb(new string(going_to_send.ToArray()), this.txtMessage.Font, "You"));
+                        Guna2GradientPanel guna2GradientPanel = Create_rtb(new string(going_to_send.ToArray()), this.txtMessage.Font, "You");
+                        //guna2GradientPanel.Dock = DockStyle.Right;
+                        this.flowLayoutPanel1.Controls.Add(guna2GradientPanel);
                         this.flowLayoutPanel1.AutoScrollPosition = new Point(0, flowLayoutPanel1.VerticalScroll.Maximum);
                         History.Add(yourip + " : " + txtMessage.Text);
                         this.History_lstbox.Items.Add(yourip + " : " + txtMessage.Text);
@@ -166,6 +169,8 @@ namespace TCPClient
             History_sever = new List<string>();
             CreateEmotions();
             Add_pic_emotion();
+            //Invite_msg i = new Invite_msg();
+            //flowLayoutPanel1.Controls.Add(i);
         }
         delegate void SetTextCallback(string text);
 
@@ -236,12 +241,11 @@ namespace TCPClient
             {
 
                 MessageBox.Show("Disconnect","Disconnect from server",MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-                if(click == true)
+                if (click == true)
                 {
                     click = true;
                     setText("Connect");
                 }
-                
                 Reset_history();
 
             }
@@ -259,6 +263,7 @@ namespace TCPClient
 
             };
             picture.Image = Image.FromStream(fs);
+            
             return picture;
         }
 
@@ -390,6 +395,35 @@ namespace TCPClient
                             }
                             Console.WriteLine(receive);
                             memoryStream.SetLength(0);
+                        }
+                        else if(receive.Contains(" has reached ") && receive.Contains(". How about you? "))
+                        {
+                            string str = Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count);
+                            Console.WriteLine(str);
+                            //Add string to flowlayoutpanel
+                            int index1 = str.IndexOf("//////");
+                            string name = str.Substring(0, index1);
+                            int index_font = str.IndexOf("++++++");
+                            string font = str.Substring(index1 + 6, index_font - index1 - 6);
+
+                            string txt = str.Substring(index_font + 6, str.Length - index_font - 6);
+                            //History.Add($"{name} : {txt}");
+                            //History_lstbox.Items.Add($"{name} : {txt}");
+                            var cvt = new FontConverter();
+                            Font f = cvt.ConvertFromString(font) as Font;
+
+                            this.flowLayoutPanel1.HorizontalScroll.Maximum = 0;
+                            this.flowLayoutPanel1.VerticalScroll.Maximum = 0;
+                            this.flowLayoutPanel1.AutoScroll = false;
+                            this.flowLayoutPanel1.VerticalScroll.Visible = false;
+                            this.flowLayoutPanel1.HorizontalScroll.Visible = false;
+                            this.flowLayoutPanel1.AutoScroll = true;
+                            //this.flowLayoutPanel1.Controls.Add(Create_rtb(str, temp_font, "You"));
+                            Invite_msg iv = new Invite_msg();
+                            iv.Show_label = txt;
+                            iv.Playgame += new EventHandler(Minigame_btn_Click);
+                            flowLayoutPanel1.Controls.Add(iv);
+                            this.flowLayoutPanel1.AutoScrollPosition = new Point(0, flowLayoutPanel1.VerticalScroll.Maximum);
                         }
                         else
                         {
@@ -559,6 +593,15 @@ namespace TCPClient
             client.Send(img_stream.Length, img_stream);
             Thread.Sleep(1000);
 
+            System.Windows.Forms.Label lb = new System.Windows.Forms.Label();
+            lb.Text = "You:";
+            lb.ForeColor = Color.White;
+            lb.Font = new Font("Franklin Gothic", 10);
+            lb.BorderStyle = BorderStyle.None;
+            lb.Size = new Size(100, 30);
+            this.flowLayoutPanel1.Controls.Add(lb);
+
+
             System.Windows.Forms.PictureBox picture = new System.Windows.Forms.PictureBox()
             {
                 Name = "pictureBox",
@@ -667,7 +710,8 @@ namespace TCPClient
                                 }
                                 else
                                 {
-                                    going_to_send.RemoveRange(index, 1);
+                                    //Console.WriteLine(index);
+                                    going_to_send.RemoveAt(index-1);
                                 }
                             }
                         }
@@ -771,6 +815,7 @@ namespace TCPClient
 
             p.Size = new Size(rtb.Width + 30, rtb.Height + 30);
             p.Controls.Add(rtb);
+            //p.Dock = DockStyle.Right;
             return p;
         }
 
@@ -851,28 +896,35 @@ namespace TCPClient
 
         private void GIF_btn_Click(object sender, EventArgs e)
         {
-            icon_panel.Visible = true;
-            icon_panel.Controls.Clear();
-            this.icon_panel.HorizontalScroll.Maximum = 0;
-            this.icon_panel.VerticalScroll.Maximum = 1;
-            this.icon_panel.AutoScroll = false;
-            this.icon_panel.VerticalScroll.Visible = false;
-            this.icon_panel.HorizontalScroll.Visible = false;
-            this.icon_panel.AutoScroll = true;
-            DirectoryInfo d = new DirectoryInfo("GIF_icon");
-
-            foreach (var file in d.GetFiles("*.gif"))
+            if (icon_panel.Visible == false)
             {
-                PictureBox p = new PictureBox
-                {
-                    Size = new Size(50, 50),
-                    Margin = new Padding(4, 4, 4, 4),
-                    SizeMode = PictureBoxSizeMode.Zoom,
-                    Image = resizeImage(Image.FromFile(d + "\\" + file.Name), new Size(50, 50)),
+                icon_panel.Visible = true;
+                icon_panel.Controls.Clear();
+                this.icon_panel.HorizontalScroll.Maximum = 0;
+                this.icon_panel.VerticalScroll.Maximum = 1;
+                this.icon_panel.AutoScroll = false;
+                this.icon_panel.VerticalScroll.Visible = false;
+                this.icon_panel.HorizontalScroll.Visible = false;
+                this.icon_panel.AutoScroll = true;
+                DirectoryInfo d = new DirectoryInfo("GIF_icon");
 
-                };
-                this.icon_panel.Controls.Add(p);
-                p.Click += (s, ee) => Add_emo_pic_manual(d + "\\" + file.Name);
+                foreach (var file in d.GetFiles("*.gif"))
+                {
+                    PictureBox p = new PictureBox
+                    {
+                        Size = new Size(50, 50),
+                        Margin = new Padding(4, 4, 4, 4),
+                        SizeMode = PictureBoxSizeMode.Zoom,
+                        Image = resizeImage(Image.FromFile(d + "\\" + file.Name), new Size(50, 50)),
+
+                    };
+                    this.icon_panel.Controls.Add(p);
+                    p.Click += (s, ee) => Add_emo_pic_manual(d + "\\" + file.Name);
+                }
+            }
+            else
+            {
+                icon_panel.Visible = false;
             }
         }
 
@@ -959,6 +1011,45 @@ namespace TCPClient
             else
                 _selectedFile = string.Empty;
 
+        }
+
+        public void Sendpointgame(int point)
+        {
+            if (client != null)
+            {
+                if (client.IsConnected)
+                {
+                    //send message
+                    string ipofyours = yourIPlabel.Text.Replace("Your IP is : ","");
+                    string str = ipofyours + " has reached " + point + " points. How about you? Click me to play ";
+                    Font temp_font = new Font("Franklin Gothic", 10);
+                    var cvt = new FontConverter();
+                    string s = cvt.ConvertToString(temp_font);
+                    string sendmsg = s + "++++++" + str;
+                    client.Send(sendmsg);
+
+                    this.flowLayoutPanel1.HorizontalScroll.Maximum = 0;
+                    this.flowLayoutPanel1.VerticalScroll.Maximum = 0;
+                    this.flowLayoutPanel1.AutoScroll = false;
+                    this.flowLayoutPanel1.VerticalScroll.Visible = false;
+                    this.flowLayoutPanel1.HorizontalScroll.Visible = false;
+                    this.flowLayoutPanel1.AutoScroll = true;
+                    //this.flowLayoutPanel1.Controls.Add(Create_rtb(str, temp_font, "You"));
+                    Invite_msg iv = new Invite_msg();
+                    iv.Show_label = "You has reached " + point + " points";
+                    iv.Playgame += new EventHandler(Minigame_btn_Click);
+                    //iv.Dock = DockStyle.Left;
+                    flowLayoutPanel1.Controls.Add(iv);
+                    this.flowLayoutPanel1.AutoScrollPosition = new Point(0, flowLayoutPanel1.VerticalScroll.Maximum);
+                    //History.Add(yourip + " : " + txtMessage.Text);
+                    //this.History_lstbox.Items.Add(yourip + " : " + txtMessage.Text);
+                    //txtMessage.Text = "";
+                    Console.WriteLine("u");
+
+                    //going_to_send.Clear();
+                    
+                }
+            }
         }
     }
 }

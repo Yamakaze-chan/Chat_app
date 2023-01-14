@@ -366,5 +366,10 @@ namespace TCPSever
             sever.Dispose();
             
         }
+
+        private void listClientIP_DoubleClick(object sender, EventArgs e)
+        {
+            sever.DisconnectClient(listClientIP.SelectedItem.ToString());
+        }
     }
 }

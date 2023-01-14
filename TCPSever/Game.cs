@@ -16,6 +16,7 @@ namespace TCPClient
         public int level = 1;
         public int thepoint = 1;
         List<Point> points = new List<Point>();
+        
         public Game()
         {
             InitializeComponent();
@@ -93,7 +94,8 @@ namespace TCPClient
             catch
             {
                 session.Stop();
-                MessageBox.Show("Game over");
+                //MessageBox.Show("Game over");
+                Askforinvitefriend();
                 ResetGame();
             }
         }
@@ -111,6 +113,7 @@ namespace TCPClient
                 }
             }
             grid.Refresh();
+            label2.Text = "Point: 0";
             SetTarget();
             points.Add(new Point(0, 0));
             points.Add(new Point(0, 1));
@@ -150,7 +153,8 @@ namespace TCPClient
             {
                 session.Stop();
                 //throw new Exception("Game Over");
-                MessageBox.Show("Game Over");
+                //MessageBox.Show("Game Over");
+                Askforinvitefriend();
                 ResetGame();
             }
 
@@ -165,6 +169,17 @@ namespace TCPClient
         {
             session.Stop();
             this.Close();
+        }
+
+        private void Askforinvitefriend()
+        {
+            MessageBox.Show("Game Over");
+            DialogResult temp_msg = MessageBox.Show("Playing alone is fun but playing with friends is more fun. Invite your friends?", "Invitation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            System.Windows.Forms.Form f = System.Windows.Forms.Application.OpenForms["Client"];
+            if (temp_msg == DialogResult.Yes)
+            {
+                ((Client)f).Sendpointgame(points.Count - 3);
+            }
         }
     }
 }
