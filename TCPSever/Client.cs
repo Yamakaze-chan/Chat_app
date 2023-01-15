@@ -1086,6 +1086,8 @@ namespace TCPClient
                 label2.ForeColor = Color.Black;
                 guna2ImageButton1.Image = Image.FromFile("icons8-summer-30(1).png");
                 guna2ImageButton1.BackColor = ColorTranslator.FromHtml("#A8F5FD");
+                History_lstbox.ForeColor = Color.Black;
+                search_history.ForeColor = Color.Black;
             }
             else
             {
@@ -1105,6 +1107,8 @@ namespace TCPClient
                 label2.ForeColor = Color.White;
                 guna2ImageButton1.Image = Image.FromFile("icons8-summer-30.png");
                 guna2ImageButton1.BackColor = Color.FromArgb(4, 5, 46);
+                History_lstbox.ForeColor = Color.White;
+                search_history.ForeColor = Color.White;
             }
             //txtMessage.PlaceholderForeColor = ColorTranslator.FromHtml("#00E4FF");
             //txtMessage.ForeColor = ColorTranslator.FromHtml("#0433FF");

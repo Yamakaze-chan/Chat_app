@@ -128,7 +128,6 @@
             // 
             this.History_lstbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(46)))));
             this.History_lstbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.History_lstbox.Enabled = false;
             this.History_lstbox.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.History_lstbox.ForeColor = System.Drawing.Color.White;
             this.History_lstbox.FormattingEnabled = true;
