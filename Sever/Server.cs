@@ -187,7 +187,15 @@ namespace TCPSever
                         int index_font = receive.IndexOf("++++++");
 
                         string txt = receive.Substring(index_font + 6, receive.Length - index_font - 6);
-                        history.Add($"{e.IpPort} : " + txt + "\n");
+                        int index_color = receive.IndexOf("------");
+
+                        txt = receive.Substring(index_color + 6, receive.Length - index_color - 6);
+                        if (txt.Contains(" has reached ") && txt.Contains(". How about you? "))
+                        { }
+                        else
+                        {
+                            history.Add($"{e.IpPort} : " + txt + "\n");
+                        }
 
                         btnSend_Click(sender, e);
                         memoryStream.SetLength(0);

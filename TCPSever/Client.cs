@@ -449,20 +449,27 @@ namespace TCPClient
                             string color = str.Substring(index_font+6, index_color - index_font-6);
                             Console.WriteLine(color);
                             string txt = str.Substring(index_color + 6, str.Length - index_color - 6);
-                            History.Add($"{name} : {txt}");
-                            History_lstbox.Items.Add($"{name} : {txt}");
-                            var cvt = new FontConverter();
-                            Font f = cvt.ConvertFromString(font) as Font;
-                            this.flowLayoutPanel1.HorizontalScroll.Maximum = 0;
-                            this.flowLayoutPanel1.VerticalScroll.Maximum = 0;
-                            this.flowLayoutPanel1.AutoScroll = false;
-                            this.flowLayoutPanel1.VerticalScroll.Visible = false;
-                            this.flowLayoutPanel1.HorizontalScroll.Visible = false;
-                            this.flowLayoutPanel1.AutoScroll = true;
-                            Guna2GradientPanel gradient = Create_rtb(txt, f, name, color);
-                            //gradient.ForeColor = Color.FromName(color);
-                            this.flowLayoutPanel1.Controls.Add(gradient);
-                            this.flowLayoutPanel1.AutoScrollPosition = new Point(0, flowLayoutPanel1.VerticalScroll.Maximum);
+                            if (txt.Contains(" has reached ") && txt.Contains(". How about you? "))
+                            {
+
+                            }
+                            else
+                            {
+                                History.Add($"{name} : {txt}");
+                                History_lstbox.Items.Add($"{name} : {txt}");
+                                var cvt = new FontConverter();
+                                Font f = cvt.ConvertFromString(font) as Font;
+                                this.flowLayoutPanel1.HorizontalScroll.Maximum = 0;
+                                this.flowLayoutPanel1.VerticalScroll.Maximum = 0;
+                                this.flowLayoutPanel1.AutoScroll = false;
+                                this.flowLayoutPanel1.VerticalScroll.Visible = false;
+                                this.flowLayoutPanel1.HorizontalScroll.Visible = false;
+                                this.flowLayoutPanel1.AutoScroll = true;
+                                Guna2GradientPanel gradient = Create_rtb(txt, f, name, color);
+                                //gradient.ForeColor = Color.FromName(color);
+                                this.flowLayoutPanel1.Controls.Add(gradient);
+                                this.flowLayoutPanel1.AutoScrollPosition = new Point(0, flowLayoutPanel1.VerticalScroll.Maximum);
+                            }
                         }
                     }
                 }
