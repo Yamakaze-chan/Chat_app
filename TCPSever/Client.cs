@@ -47,7 +47,9 @@ namespace TCPClient
                         //send message
                         var cvt = new FontConverter();
                         string s = cvt.ConvertToString(this.txtMessage.Font);
-                        string sendmsg = s + "++++++" + new string(going_to_send.ToArray());
+                        string c = this.txtMessage.ForeColor.ToString().Replace("Color [","");
+                        c = c.Replace("]", "");
+                        string sendmsg = s + "++++++" + c + "------" + new string(going_to_send.ToArray());
                         client.Send(sendmsg);
 
                         this.flowLayoutPanel1.HorizontalScroll.Maximum = 0;
@@ -56,8 +58,9 @@ namespace TCPClient
                         this.flowLayoutPanel1.VerticalScroll.Visible = false;
                         this.flowLayoutPanel1.HorizontalScroll.Visible = false;
                         this.flowLayoutPanel1.AutoScroll = true;
-                        Guna2GradientPanel guna2GradientPanel = Create_rtb(new string(going_to_send.ToArray()), this.txtMessage.Font, "You");
+                        Guna2GradientPanel guna2GradientPanel = Create_rtb(new string(going_to_send.ToArray()), this.txtMessage.Font, "You", c);
                         //guna2GradientPanel.Dock = DockStyle.Right;
+                        //guna2GradientPanel.ForeColor = this.txtMessage.ForeColor;
                         this.flowLayoutPanel1.Controls.Add(guna2GradientPanel);
                         this.flowLayoutPanel1.AutoScrollPosition = new Point(0, flowLayoutPanel1.VerticalScroll.Maximum);
                         History.Add(yourip + " : " + txtMessage.Text);
@@ -442,8 +445,10 @@ namespace TCPClient
                             string name = str.Substring(0, index1);
                             int index_font = str.IndexOf("++++++");
                             string font = str.Substring(index1 + 6, index_font - index1 - 6);
-
-                            string txt = str.Substring(index_font + 6, str.Length - index_font - 6);
+                            int index_color = str.IndexOf("------");
+                            string color = str.Substring(index_font+6, index_color - index_font-6);
+                            Console.WriteLine(color);
+                            string txt = str.Substring(index_color + 6, str.Length - index_color - 6);
                             History.Add($"{name} : {txt}");
                             History_lstbox.Items.Add($"{name} : {txt}");
                             var cvt = new FontConverter();
@@ -454,7 +459,9 @@ namespace TCPClient
                             this.flowLayoutPanel1.VerticalScroll.Visible = false;
                             this.flowLayoutPanel1.HorizontalScroll.Visible = false;
                             this.flowLayoutPanel1.AutoScroll = true;
-                            this.flowLayoutPanel1.Controls.Add(Create_rtb(txt, f, name));
+                            Guna2GradientPanel gradient = Create_rtb(txt, f, name, color);
+                            //gradient.ForeColor = Color.FromName(color);
+                            this.flowLayoutPanel1.Controls.Add(gradient);
                             this.flowLayoutPanel1.AutoScrollPosition = new Point(0, flowLayoutPanel1.VerticalScroll.Maximum);
                         }
                     }
@@ -662,14 +669,18 @@ namespace TCPClient
 
         private void changetextbtn_Click(object sender, EventArgs e)
         {
+            //fd.Color = true;
             fd.MaxSize = 30;
             fd.MinSize = 10;
             fd.ShowColor = true;
             fd.ShowApply = true;
-            fd.ShowEffects = false;
+            fd.ShowEffects = true;
             fd.ShowHelp = true;
             if (fd.ShowDialog() == DialogResult.OK)
             {
+                //Color c = fd.Color;
+                //MessageBox.Show(c.ToString());
+                this.txtMessage.ForeColor = fd.Color;
                 this.txtMessage.Font = fd.Font;
             }
         }
@@ -792,7 +803,7 @@ namespace TCPClient
             }
         }
 
-        private Guna2GradientPanel Create_rtb(string s, Font f, string send_pp)
+        private Guna2GradientPanel Create_rtb(string s, Font f, string send_pp, string color)
         {
             Label rtb = new Label();
             rtb.Text = $"{send_pp}: " + s;
@@ -804,6 +815,7 @@ namespace TCPClient
             rtb.Click += (z, ee) => HideCaret(rtb.Handle);
             var cvt = new FontConverter();
             rtb.Font = f;
+            rtb.ForeColor = Color.FromName(color);
             using (Graphics g = CreateGraphics())
             {
                 rtb.Height = (int)g.MeasureString(rtb.Text,
