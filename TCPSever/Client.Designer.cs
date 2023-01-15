@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Client));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.Minigame_btn = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.Image_btn = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.History_btn = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.Exit_btn = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.Avatar_btn = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.history_panel = new System.Windows.Forms.Panel();
             this.History_lstbox = new System.Windows.Forms.ListBox();
@@ -37,8 +43,11 @@
             this.memories_flowlayoutpanel = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2CircleProgressBar2 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             this.guna2CircleProgressBar1 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
+            this.Avatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Avatar_Ip = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.yourIPlabel = new System.Windows.Forms.Label();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -54,36 +63,27 @@
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtMessage = new Guna.UI2.WinForms.Guna2TextBox();
-            this.icon_panel = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Gif_btn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.Icon_btn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.File_btn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.Changtext_btn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.Send_btn = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Avatar_Ip = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.Avatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.Minigame_btn = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.Image_btn = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.History_btn = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.Exit_btn = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.Avatar_btn = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.icon_panel = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Avatar_btn)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             this.history_panel.SuspendLayout();
             this.guna2CircleProgressBar2.SuspendLayout();
             this.guna2CircleProgressBar1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Avatar)).BeginInit();
             this.guna2Panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Avatar_Ip)).BeginInit();
             this.guna2Panel4.SuspendLayout();
             this.guna2GradientPanel3.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Avatar_Ip)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Avatar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Avatar_btn)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -100,6 +100,99 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(73, 775);
             this.guna2Panel1.TabIndex = 0;
+            // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(25, 25);
+            this.guna2ImageButton1.Image = global::TCPSever.Properties.Resources.icons8_summer_30;
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(25, 25);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(18, 475);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(25, 25);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(36, 43);
+            this.guna2ImageButton1.TabIndex = 3;
+            this.guna2ImageButton1.Click += new System.EventHandler(this.Change_color_Click);
+            // 
+            // Minigame_btn
+            // 
+            this.Minigame_btn.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.Minigame_btn.HoverState.ImageSize = new System.Drawing.Size(25, 25);
+            this.Minigame_btn.Image = global::TCPSever.Properties.Resources.game;
+            this.Minigame_btn.ImageOffset = new System.Drawing.Point(0, 0);
+            this.Minigame_btn.ImageRotate = 0F;
+            this.Minigame_btn.ImageSize = new System.Drawing.Size(25, 25);
+            this.Minigame_btn.Location = new System.Drawing.Point(18, 524);
+            this.Minigame_btn.Name = "Minigame_btn";
+            this.Minigame_btn.PressedState.ImageSize = new System.Drawing.Size(25, 25);
+            this.Minigame_btn.Size = new System.Drawing.Size(36, 43);
+            this.Minigame_btn.TabIndex = 1;
+            this.Minigame_btn.Click += new System.EventHandler(this.Minigame_btn_Click);
+            // 
+            // Image_btn
+            // 
+            this.Image_btn.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.Image_btn.HoverState.ImageSize = new System.Drawing.Size(25, 25);
+            this.Image_btn.Image = global::TCPSever.Properties.Resources.image;
+            this.Image_btn.ImageOffset = new System.Drawing.Point(0, 0);
+            this.Image_btn.ImageRotate = 0F;
+            this.Image_btn.ImageSize = new System.Drawing.Size(25, 25);
+            this.Image_btn.Location = new System.Drawing.Point(18, 589);
+            this.Image_btn.Name = "Image_btn";
+            this.Image_btn.PressedState.ImageSize = new System.Drawing.Size(25, 25);
+            this.Image_btn.Size = new System.Drawing.Size(36, 43);
+            this.Image_btn.TabIndex = 1;
+            this.Image_btn.Click += new System.EventHandler(this.Image_btn_Click);
+            // 
+            // History_btn
+            // 
+            this.History_btn.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.History_btn.HoverState.ImageSize = new System.Drawing.Size(25, 25);
+            this.History_btn.Image = global::TCPSever.Properties.Resources.history;
+            this.History_btn.ImageOffset = new System.Drawing.Point(0, 0);
+            this.History_btn.ImageRotate = 0F;
+            this.History_btn.ImageSize = new System.Drawing.Size(25, 25);
+            this.History_btn.Location = new System.Drawing.Point(18, 654);
+            this.History_btn.Name = "History_btn";
+            this.History_btn.PressedState.ImageSize = new System.Drawing.Size(25, 25);
+            this.History_btn.Size = new System.Drawing.Size(36, 43);
+            this.History_btn.TabIndex = 1;
+            this.History_btn.Click += new System.EventHandler(this.History_btn_Click);
+            // 
+            // Exit_btn
+            // 
+            this.Exit_btn.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.Exit_btn.HoverState.Image = global::TCPSever.Properties.Resources.exit_hover;
+            this.Exit_btn.HoverState.ImageSize = new System.Drawing.Size(25, 25);
+            this.Exit_btn.Image = global::TCPSever.Properties.Resources.exit;
+            this.Exit_btn.ImageOffset = new System.Drawing.Point(0, 0);
+            this.Exit_btn.ImageRotate = 0F;
+            this.Exit_btn.ImageSize = new System.Drawing.Size(25, 25);
+            this.Exit_btn.Location = new System.Drawing.Point(18, 719);
+            this.Exit_btn.Name = "Exit_btn";
+            this.Exit_btn.PressedState.ImageSize = new System.Drawing.Size(25, 25);
+            this.Exit_btn.Size = new System.Drawing.Size(36, 43);
+            this.Exit_btn.TabIndex = 1;
+            this.Exit_btn.Click += new System.EventHandler(this.Exit_btn_Click);
+            // 
+            // Avatar_btn
+            // 
+            this.Avatar_btn.BackColor = System.Drawing.Color.Transparent;
+            this.Avatar_btn.Image = global::TCPSever.Properties.Resources.cloud;
+            this.Avatar_btn.ImageRotate = 0F;
+            this.Avatar_btn.Location = new System.Drawing.Point(18, 14);
+            this.Avatar_btn.Name = "Avatar_btn";
+            this.Avatar_btn.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(13)))), ((int)(((byte)(146)))));
+            this.Avatar_btn.ShadowDecoration.Enabled = true;
+            this.Avatar_btn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.Avatar_btn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(7, 7, 5, 5);
+            this.Avatar_btn.Size = new System.Drawing.Size(36, 36);
+            this.Avatar_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Avatar_btn.TabIndex = 1;
+            this.Avatar_btn.TabStop = false;
+            this.Avatar_btn.Click += new System.EventHandler(this.Avatar_btn_Click);
             // 
             // guna2Panel2
             // 
@@ -199,6 +292,19 @@
             this.guna2CircleProgressBar1.Text = "guna2CircleProgressBar1";
             this.guna2CircleProgressBar1.Value = 45;
             // 
+            // Avatar
+            // 
+            this.Avatar.BackColor = System.Drawing.Color.Transparent;
+            this.Avatar.Image = ((System.Drawing.Image)(resources.GetObject("Avatar.Image")));
+            this.Avatar.ImageRotate = 0F;
+            this.Avatar.Location = new System.Drawing.Point(20, 20);
+            this.Avatar.Name = "Avatar";
+            this.Avatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.Avatar.Size = new System.Drawing.Size(100, 100);
+            this.Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Avatar.TabIndex = 7;
+            this.Avatar.TabStop = false;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -222,6 +328,28 @@
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(1031, 65);
             this.guna2Panel3.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::TCPSever.Properties.Resources.com_gif_maker_18__unscreen;
+            this.pictureBox1.Location = new System.Drawing.Point(87, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 26;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Avatar_Ip
+            // 
+            this.Avatar_Ip.Image = ((System.Drawing.Image)(resources.GetObject("Avatar_Ip.Image")));
+            this.Avatar_Ip.ImageRotate = 0F;
+            this.Avatar_Ip.Location = new System.Drawing.Point(264, 14);
+            this.Avatar_Ip.Name = "Avatar_Ip";
+            this.Avatar_Ip.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.Avatar_Ip.Size = new System.Drawing.Size(36, 36);
+            this.Avatar_Ip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Avatar_Ip.TabIndex = 7;
+            this.Avatar_Ip.TabStop = false;
             // 
             // yourIPlabel
             // 
@@ -470,27 +598,6 @@
             this.txtMessage.TextChanged += new System.EventHandler(this.txtMessage_TextChanged);
             this.txtMessage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMessage_KeyPress);
             // 
-            // icon_panel
-            // 
-            this.icon_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(46)))));
-            this.icon_panel.Location = new System.Drawing.Point(866, 361);
-            this.icon_panel.Name = "icon_panel";
-            this.icon_panel.Size = new System.Drawing.Size(232, 355);
-            this.icon_panel.TabIndex = 25;
-            this.icon_panel.Visible = false;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(46)))));
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(334, 65);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(770, 658);
-            this.flowLayoutPanel1.TabIndex = 26;
-            this.flowLayoutPanel1.WrapContents = false;
-            // 
             // Gif_btn
             // 
             this.Gif_btn.BackColor = System.Drawing.Color.Transparent;
@@ -596,133 +703,26 @@
             this.Send_btn.TabIndex = 0;
             this.Send_btn.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // pictureBox1
+            // icon_panel
             // 
-            this.pictureBox1.Image = global::TCPSever.Properties.Resources.com_gif_maker_18__unscreen;
-            this.pictureBox1.Location = new System.Drawing.Point(87, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 26;
-            this.pictureBox1.TabStop = false;
+            this.icon_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(46)))));
+            this.icon_panel.Location = new System.Drawing.Point(866, 361);
+            this.icon_panel.Name = "icon_panel";
+            this.icon_panel.Size = new System.Drawing.Size(232, 355);
+            this.icon_panel.TabIndex = 25;
+            this.icon_panel.Visible = false;
             // 
-            // Avatar_Ip
+            // flowLayoutPanel1
             // 
-            this.Avatar_Ip.Image = ((System.Drawing.Image)(resources.GetObject("Avatar_Ip.Image")));
-            this.Avatar_Ip.ImageRotate = 0F;
-            this.Avatar_Ip.Location = new System.Drawing.Point(264, 14);
-            this.Avatar_Ip.Name = "Avatar_Ip";
-            this.Avatar_Ip.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.Avatar_Ip.Size = new System.Drawing.Size(36, 36);
-            this.Avatar_Ip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Avatar_Ip.TabIndex = 7;
-            this.Avatar_Ip.TabStop = false;
-            // 
-            // Avatar
-            // 
-            this.Avatar.BackColor = System.Drawing.Color.Transparent;
-            this.Avatar.Image = ((System.Drawing.Image)(resources.GetObject("Avatar.Image")));
-            this.Avatar.ImageRotate = 0F;
-            this.Avatar.Location = new System.Drawing.Point(20, 20);
-            this.Avatar.Name = "Avatar";
-            this.Avatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.Avatar.Size = new System.Drawing.Size(100, 100);
-            this.Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Avatar.TabIndex = 7;
-            this.Avatar.TabStop = false;
-            // 
-            // guna2ImageButton1
-            // 
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(25, 25);
-            this.guna2ImageButton1.Image = global::TCPSever.Properties.Resources.icons8_summer_30;
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(25, 25);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(18, 475);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(25, 25);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(36, 43);
-            this.guna2ImageButton1.TabIndex = 3;
-            this.guna2ImageButton1.Click += new System.EventHandler(this.Change_color_Click);
-            // 
-            // Minigame_btn
-            // 
-            this.Minigame_btn.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.Minigame_btn.HoverState.ImageSize = new System.Drawing.Size(25, 25);
-            this.Minigame_btn.Image = global::TCPSever.Properties.Resources.game;
-            this.Minigame_btn.ImageOffset = new System.Drawing.Point(0, 0);
-            this.Minigame_btn.ImageRotate = 0F;
-            this.Minigame_btn.ImageSize = new System.Drawing.Size(25, 25);
-            this.Minigame_btn.Location = new System.Drawing.Point(18, 524);
-            this.Minigame_btn.Name = "Minigame_btn";
-            this.Minigame_btn.PressedState.ImageSize = new System.Drawing.Size(25, 25);
-            this.Minigame_btn.Size = new System.Drawing.Size(36, 43);
-            this.Minigame_btn.TabIndex = 1;
-            this.Minigame_btn.Click += new System.EventHandler(this.Minigame_btn_Click);
-            // 
-            // Image_btn
-            // 
-            this.Image_btn.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.Image_btn.HoverState.ImageSize = new System.Drawing.Size(25, 25);
-            this.Image_btn.Image = global::TCPSever.Properties.Resources.image;
-            this.Image_btn.ImageOffset = new System.Drawing.Point(0, 0);
-            this.Image_btn.ImageRotate = 0F;
-            this.Image_btn.ImageSize = new System.Drawing.Size(25, 25);
-            this.Image_btn.Location = new System.Drawing.Point(18, 589);
-            this.Image_btn.Name = "Image_btn";
-            this.Image_btn.PressedState.ImageSize = new System.Drawing.Size(25, 25);
-            this.Image_btn.Size = new System.Drawing.Size(36, 43);
-            this.Image_btn.TabIndex = 1;
-            this.Image_btn.Click += new System.EventHandler(this.Image_btn_Click);
-            // 
-            // History_btn
-            // 
-            this.History_btn.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.History_btn.HoverState.ImageSize = new System.Drawing.Size(25, 25);
-            this.History_btn.Image = global::TCPSever.Properties.Resources.history;
-            this.History_btn.ImageOffset = new System.Drawing.Point(0, 0);
-            this.History_btn.ImageRotate = 0F;
-            this.History_btn.ImageSize = new System.Drawing.Size(25, 25);
-            this.History_btn.Location = new System.Drawing.Point(18, 654);
-            this.History_btn.Name = "History_btn";
-            this.History_btn.PressedState.ImageSize = new System.Drawing.Size(25, 25);
-            this.History_btn.Size = new System.Drawing.Size(36, 43);
-            this.History_btn.TabIndex = 1;
-            this.History_btn.Click += new System.EventHandler(this.History_btn_Click);
-            // 
-            // Exit_btn
-            // 
-            this.Exit_btn.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.Exit_btn.HoverState.Image = global::TCPSever.Properties.Resources.exit_hover;
-            this.Exit_btn.HoverState.ImageSize = new System.Drawing.Size(25, 25);
-            this.Exit_btn.Image = global::TCPSever.Properties.Resources.exit;
-            this.Exit_btn.ImageOffset = new System.Drawing.Point(0, 0);
-            this.Exit_btn.ImageRotate = 0F;
-            this.Exit_btn.ImageSize = new System.Drawing.Size(25, 25);
-            this.Exit_btn.Location = new System.Drawing.Point(18, 719);
-            this.Exit_btn.Name = "Exit_btn";
-            this.Exit_btn.PressedState.ImageSize = new System.Drawing.Size(25, 25);
-            this.Exit_btn.Size = new System.Drawing.Size(36, 43);
-            this.Exit_btn.TabIndex = 1;
-            this.Exit_btn.Click += new System.EventHandler(this.Exit_btn_Click);
-            // 
-            // Avatar_btn
-            // 
-            this.Avatar_btn.BackColor = System.Drawing.Color.Transparent;
-            this.Avatar_btn.Image = global::TCPSever.Properties.Resources.cloud;
-            this.Avatar_btn.ImageRotate = 0F;
-            this.Avatar_btn.Location = new System.Drawing.Point(18, 14);
-            this.Avatar_btn.Name = "Avatar_btn";
-            this.Avatar_btn.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(13)))), ((int)(((byte)(146)))));
-            this.Avatar_btn.ShadowDecoration.Enabled = true;
-            this.Avatar_btn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.Avatar_btn.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(7, 7, 5, 5);
-            this.Avatar_btn.Size = new System.Drawing.Size(36, 36);
-            this.Avatar_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Avatar_btn.TabIndex = 1;
-            this.Avatar_btn.TabStop = false;
-            this.Avatar_btn.Click += new System.EventHandler(this.Avatar_btn_Click);
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(5)))), ((int)(((byte)(46)))));
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(334, 65);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(770, 658);
+            this.flowLayoutPanel1.TabIndex = 26;
+            this.flowLayoutPanel1.WrapContents = false;
             // 
             // Client
             // 
@@ -745,23 +745,23 @@
             this.Text = "Client";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.guna2Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Avatar_btn)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             this.history_panel.ResumeLayout(false);
             this.history_panel.PerformLayout();
             this.guna2CircleProgressBar2.ResumeLayout(false);
             this.guna2CircleProgressBar1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Avatar)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Avatar_Ip)).EndInit();
             this.guna2Panel4.ResumeLayout(false);
             this.guna2GradientPanel3.ResumeLayout(false);
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
             this.guna2Panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Avatar_Ip)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Avatar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Avatar_btn)).EndInit();
             this.ResumeLayout(false);
 
         }

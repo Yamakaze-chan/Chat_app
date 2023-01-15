@@ -1082,14 +1082,16 @@ namespace TCPClient
         {
             if (flowLayoutPanel1.BackColor == Color.FromArgb(4, 5, 46))
             {
-                flowLayoutPanel1.BackColor = ColorTranslator.FromHtml("#A8F5FD");
-                icon_panel.BackColor = ColorTranslator.FromHtml("#A8F5FD");
-                guna2Panel2.BackColor = ColorTranslator.FromHtml("#A8F5FD");
-                search_history.BackColor = ColorTranslator.FromHtml("#A8F5FD");
-                History_lstbox.BackColor = ColorTranslator.FromHtml("#A8F5FD");
-                guna2Panel4.BackColor = ColorTranslator.FromHtml("#A8F5FD");
-                guna2Panel5.BackColor = ColorTranslator.FromHtml("#A8F5FD");
-                txtMessage.BackColor = ColorTranslator.FromHtml("#A8F5FD");
+                flowLayoutPanel1.BackColor = ColorTranslator.FromHtml("#F4ACB7");
+                icon_panel.BackColor = ColorTranslator.FromHtml("#F4ACB7");
+                guna2Panel1.BackColor = ColorTranslator.FromHtml("#FF87AB");
+                guna2Panel2.BackColor = ColorTranslator.FromHtml("#FFA6C1");
+                guna2Panel3.BackColor = ColorTranslator.FromHtml("#FF97B7");
+                search_history.BackColor = ColorTranslator.FromHtml("#F4ACB7");
+                History_lstbox.BackColor = ColorTranslator.FromHtml("#F4ACB7");
+                guna2Panel4.BackColor = ColorTranslator.FromHtml("#F4ACB7");
+                guna2Panel5.BackColor = ColorTranslator.FromHtml("#F4ACB7");
+                txtMessage.BackColor = ColorTranslator.FromHtml("#F4ACB7");
                 foreach (Label lb in flowLayoutPanel1.Controls.OfType<Label>())
                 {
                     lb.ForeColor = Color.Black;
@@ -1097,7 +1099,7 @@ namespace TCPClient
                 btnAdd.ForeColor = Color.Black;
                 label2.ForeColor = Color.Black;
                 guna2ImageButton1.Image = Image.FromFile("icons8-summer-30(1).png");
-                guna2ImageButton1.BackColor = ColorTranslator.FromHtml("#A8F5FD");
+                guna2ImageButton1.BackColor = ColorTranslator.FromHtml("#FF87AB");
                 History_lstbox.ForeColor = Color.Black;
                 search_history.ForeColor = Color.Black;
             }
@@ -1105,7 +1107,9 @@ namespace TCPClient
             {
                 flowLayoutPanel1.BackColor = Color.FromArgb(4, 5, 46);
                 icon_panel.BackColor = Color.FromArgb(4, 5, 46);
+                guna2Panel1.BackColor = Color.FromArgb(16, 0, 43);
                 guna2Panel2.BackColor = Color.FromArgb(4, 5, 46);
+                guna2Panel3.BackColor = Color.FromArgb(20, 1, 82);
                 search_history.BackColor = Color.FromArgb(4, 5, 46);
                 History_lstbox.BackColor = Color.FromArgb(4, 5, 46);
                 guna2Panel4.BackColor = Color.FromArgb(4, 5, 46);
