@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -349,6 +350,12 @@ namespace TCPClient
                                 PictureBox p = insertpicture(path);
                                 this.flowLayoutPanel1.Controls.Add(p);
                                 PictureBox pi = insertmemoriespicture(path);
+                                this.memories_flowlayoutpanel.HorizontalScroll.Maximum = 0;
+                                this.memories_flowlayoutpanel.VerticalScroll.Maximum = 0;
+                                this.memories_flowlayoutpanel.AutoScroll = false;
+                                this.memories_flowlayoutpanel.VerticalScroll.Visible = false;
+                                this.memories_flowlayoutpanel.HorizontalScroll.Visible = false;
+                                this.memories_flowlayoutpanel.AutoScroll = true;
                                 this.memories_flowlayoutpanel.Controls.Add(pi);
                             }
                             this.memoryStream.Close();
@@ -595,7 +602,14 @@ namespace TCPClient
 
             System.Windows.Forms.Label lb = new System.Windows.Forms.Label();
             lb.Text = "You:";
-            lb.ForeColor = Color.White;
+            if (flowLayoutPanel1.BackColor == Color.FromArgb(4, 5, 46))
+            {
+                lb.ForeColor = Color.White;
+            }
+            else
+            {
+                lb.ForeColor = Color.Black;
+            }
             lb.Font = new Font("Franklin Gothic", 10);
             lb.BorderStyle = BorderStyle.None;
             lb.Size = new Size(100, 30);
@@ -1050,6 +1064,50 @@ namespace TCPClient
                     
                 }
             }
+        }
+
+        private void Change_color_Click(object sender, EventArgs e)
+        {
+            if (flowLayoutPanel1.BackColor == Color.FromArgb(4, 5, 46))
+            {
+                flowLayoutPanel1.BackColor = ColorTranslator.FromHtml("#A8F5FD");
+                icon_panel.BackColor = ColorTranslator.FromHtml("#A8F5FD");
+                guna2Panel2.BackColor = ColorTranslator.FromHtml("#A8F5FD");
+                search_history.BackColor = ColorTranslator.FromHtml("#A8F5FD");
+                History_lstbox.BackColor = ColorTranslator.FromHtml("#A8F5FD");
+                guna2Panel4.BackColor = ColorTranslator.FromHtml("#A8F5FD");
+                guna2Panel5.BackColor = ColorTranslator.FromHtml("#A8F5FD");
+                txtMessage.BackColor = ColorTranslator.FromHtml("#A8F5FD");
+                foreach (Label lb in flowLayoutPanel1.Controls.OfType<Label>())
+                {
+                    lb.ForeColor = Color.Black;
+                }
+                btnAdd.ForeColor = Color.Black;
+                label2.ForeColor = Color.Black;
+                guna2ImageButton1.Image = Image.FromFile("icons8-summer-30(1).png");
+                guna2ImageButton1.BackColor = ColorTranslator.FromHtml("#A8F5FD");
+            }
+            else
+            {
+                flowLayoutPanel1.BackColor = Color.FromArgb(4, 5, 46);
+                icon_panel.BackColor = Color.FromArgb(4, 5, 46);
+                guna2Panel2.BackColor = Color.FromArgb(4, 5, 46);
+                search_history.BackColor = Color.FromArgb(4, 5, 46);
+                History_lstbox.BackColor = Color.FromArgb(4, 5, 46);
+                guna2Panel4.BackColor = Color.FromArgb(4, 5, 46);
+                guna2Panel5.BackColor = Color.FromArgb(4, 5, 46);
+                txtMessage.BackColor = Color.FromArgb(4, 5, 46);
+                foreach (Label lb in flowLayoutPanel1.Controls.OfType<Label>())
+                {
+                    lb.ForeColor = Color.White;
+                }
+                btnAdd.ForeColor = Color.White;
+                label2.ForeColor = Color.White;
+                guna2ImageButton1.Image = Image.FromFile("icons8-summer-30.png");
+                guna2ImageButton1.BackColor = Color.FromArgb(4, 5, 46);
+            }
+            //txtMessage.PlaceholderForeColor = ColorTranslator.FromHtml("#00E4FF");
+            //txtMessage.ForeColor = ColorTranslator.FromHtml("#0433FF");
         }
     }
 }

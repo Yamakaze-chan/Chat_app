@@ -118,6 +118,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\icons8-summer-30%281%29.png" />
+    <None Include="Resources\icons8-summer-30.png" />
     <None Include="Resources\feuer-fire.gif" />
     <None Include="Resources\cloud.png" />
     <None Include="bin\Debug\GIF\com-gif-maker-18--unscreen.gif" />

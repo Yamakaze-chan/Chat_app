@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Avatar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Avatar_Ip.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAfctJREFUeF7tnQd4FVX6h2PvumtZddfu2rC3/du7qwIquqLYsKOgWEAEAQUUEaUo
+        DQAACw0B7QfALAAAfctJREFUeF7tnQd4FVX6h2PvumtZddfu2rC3/du7qwIquqLYsKOgWEAEAQUUEaUo
         0qQrIGiYm1ADoQVICL2GUBJ6CxAgvWfu959zc6Ih+SW5/Z4z873P8z7uanJzZu7M95tyShTDMAzDMAzD
         MAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzD
         MAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDaEk0nRQVS5dEuegOy6csm1t+GGXQl1GG2ddyZJTL
@@ -661,10 +661,10 @@
         fgaBl14AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Avatar_Ip.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Avatar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAfctJREFUeF7tnQd4FVX6h2PvumtZddfu2rC3/du7qwIquqLYsKOgWEAEAQUUEaUo
+        DQAACw0B7QfALAAAfctJREFUeF7tnQd4FVX6h2PvumtZddfu2rC3/du7qwIquqLYsKOgWEAEAQUUEaUo
         0qQrIGiYm1ADoQVICL2GUBJ6CxAgvWfu959zc6Ih+SW5/Z4z873P8z7uanJzZu7M95tyShTDMAzDMAzD
         MAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzD
         MAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDMAzDaEk0nRQVS5dEuegOy6csm1t+GGXQl1GG2ddyZJTL
